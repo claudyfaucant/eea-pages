@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EEA Resources | Enterprise Ethereum Alliance</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0f;
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #627eea 0%, #9945FF 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .logo-text span {
+            color: #627eea;
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            gap: 4px;
+            background: rgba(255,255,255,0.05);
+            padding: 4px;
+            border-radius: 12px;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            background: transparent;
+            border: none;
+            color: #8a8a9a;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .tab-btn.active {
+            background: #627eea;
+            color: #fff;
+        }
+
+        /* Content Area */
+        .content-frame {
+            width: 100%;
+            height: calc(100vh - 80px);
+            border: none;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .header {
+                padding: 1rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .tab-nav {
+                width: 100%;
+                overflow-x: auto;
+                justify-content: flex-start;
+            }
+
+            .tab-btn {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="https://entethalliance.org" class="logo" target="_blank">
+                <div class="logo-icon">EEA</div>
+                <div class="logo-text">Enterprise <span>Ethereum</span> Alliance</div>
+            </a>
+            <nav class="tab-nav">
+                <button class="tab-btn active" data-page="ethereum-global-computer.html">
+                    🌐 Global Computer
+                </button>
+                <button class="tab-btn" data-page="ethereum-architecture.html">
+                    🏗️ Architecture
+                </button>
+                <button class="tab-btn" data-page="finance-infrastructure.html">
+                    💰 Finance Map
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <iframe id="content-frame" class="content-frame" src="ethereum-global-computer.html"></iframe>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab-btn');
+        const frame = document.getElementById('content-frame');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Update active state
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Load page
+                frame.src = tab.dataset.page;
+            });
+        });
+
+        // Handle URL hash for direct linking
+        const hash = window.location.hash.slice(1);
+        if (hash) {
+            const targetTab = document.querySelector(`[data-page="${hash}.html"]`);
+            if (targetTab) {
+                targetTab.click();
+            }
+        }
+    </script>
+</body>
+</html>

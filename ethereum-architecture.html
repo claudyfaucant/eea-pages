@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Ethereum Architecture Overview</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 50%, #9b59b6 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            background: linear-gradient(45deg, #3498db, #9b59b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .architecture-overview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .layer {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            border: 3px solid #e9ecef;
+            position: relative;
+        }
+        
+        .layer-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 8px;
+            color: white;
+        }
+        
+        .l1-title {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+        }
+        
+        .l2-title {
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+        }
+        
+        .component {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 5px solid;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .component:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .consensus { border-left-color: #3498db; }
+        .execution { border-left-color: #e74c3c; }
+        .mev { border-left-color: #f39c12; }
+        .sequencer { border-left-color: #9b59b6; }
+        .validator { border-left-color: #2ecc71; }
+        .prover { border-left-color: #1abc9c; }
+        .enterprise { border-left-color: #34495e; }
+        .blob { border-left-color: #e67e22; }
+        
+        .component-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .component-desc {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        .timing-info {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .mev-ecosystem {
+            background: #fff5e6;
+            border: 2px dashed #f39c12;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        
+        .mev-title {
+            font-weight: bold;
+            color: #f39c12;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .mev-flow {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .mev-actor {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #f39c12;
+            text-align: center;
+        }
+        
+        .enterprise-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 3px solid #34495e;
+        }
+        
+        .enterprise-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #34495e;
+            margin-bottom: 15px;
+        }
+        
+        .risk-matrix {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .risk-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .risk-low { border-left-color: #27ae60; }
+        .risk-medium { border-left-color: #f39c12; }
+        .risk-high { border-left-color: #e74c3c; }
+        
+        .blob-section {
+            background: #fef9e7;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 3px solid #e67e22;
+        }
+        
+        .blob-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .blob-step {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #e67e22;
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+        }
+        
+        .roadmap-section {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        
+        .roadmap-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .roadmap-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .performance-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .metric-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 3px solid;
+            animation: pulse 3s infinite;
+        }
+        
+        .metric-l1 { border-color: #e74c3c; }
+        .metric-l2 { border-color: #27ae60; }
+        .metric-future { border-color: #9b59b6; }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 4px;
+            border-radius: 2px;
+        }
+        
+        .arrow {
+            font-size: 2em;
+            color: #3498db;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(0); }
+            40% { transform: translateX(10px); }
+            60% { transform: translateX(5px); }
+        }
+        
+        .interactive-note {
+            background: #e8f4fd;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌐 Complete Ethereum Architecture: L1, L2, MEV & Enterprise</h1>
+        
+        <div class="performance-metrics">
+            <div class="metric-card metric-l1">
+                <h3>L1 Current</h3>
+                <div style="font-size: 2em; font-weight: bold;">~15 TPS</div>
+                <div>30M gas limit</div>
+            </div>
+            <div class="metric-card metric-l2">
+                <h3>L2 Ecosystem</h3>
+                <div style="font-size: 2em; font-weight: bold;">~100K TPS</div>
+                <div>Combined capacity</div>
+            </div>
+            <div class="metric-card metric-future">
+                <h3>Roadmap Target</h3>
+                <div style="font-size: 2em; font-weight: bold;">~1M TPS</div>
+                <div>With full scaling</div>
+            </div>
+        </div>
+        
+        <div class="architecture-overview">
+            <div class="layer">
+                <div class="layer-title l1-title">Layer 1 (Ethereum Mainnet)</div>
+                
+                <div class="component consensus">
+                    <div class="component-title">🎯 Consensus Client (Beacon Chain)</div>
+                    <div class="component-desc">
+                        <strong>Manages:</strong> 500K+ validators, random proposer selection every 12 seconds<br>
+                        <strong>Clients:</strong> Prysm, Lighthouse, Teku, Nimbus<br>
+                        <strong>Function:</strong> Validator coordination, finality, attestations
+                    </div>
+                </div>
+                
+                <div class="component execution">
+                    <div class="component-title">⚡ Execution Client (EVM)</div>
+                    <div class="component-desc">
+                        <strong>Manages:</strong> Transaction processing, state updates, smart contracts<br>
+                        <strong>Clients:</strong> Geth, Besu, Nethermind, Erigon<br>
+                        <strong>Function:</strong> Mempool management, gas calculation, EVM execution
+                    </div>
+                </div>
+                
+                <div class="component blob">
+                    <div class="component-title">📦 Data Availability (Blobs)</div>
+                    <div class="component-desc">
+                        <strong>Current:</strong> 6 blobs per block (768KB), 18-day retention<br>
+                        <strong>Users:</strong> L2 rollups posting transaction batches<br>
+                        <strong>Storage:</strong> Consensus layer, not execution layer
+                    </div>
+                </div>
+                
+                <div class="timing-info">
+                    ⏱️ <strong>12-second slots</strong> | 32 slots per epoch<br>
+                    1 proposer + 31 attesters per slot
+                </div>
+            </div>
+            
+            <div class="layer">
+                <div class="layer-title l2-title">Layer 2 (Rollup Ecosystem)</div>
+                
+                <div class="component sequencer">
+                    <div class="component-title">🎼 Sequencer (Current: Centralized)</div>
+                    <div class="component-desc">
+                        <strong>Function:</strong> Orders L2 transactions, provides instant confirmations<br>
+                        <strong>Examples:</strong> Base (Coinbase), Arbitrum (Offchain Labs)<br>
+                        <strong>Evolution:</strong> Moving to Based rollups (L1 validators as sequencers)
+                    </div>
+                </div>
+                
+                <div class="component prover">
+                    <div class="component-title">✅ Validators/Provers</div>
+                    <div class="component-desc">
+                        <strong>Optimistic:</strong> Fraud proof system, 7-day withdrawal period<br>
+                        <strong>ZK Rollups:</strong> Mathematical proofs, instant finality<br>
+                        <strong>Function:</strong> Verify state transitions, enable withdrawals
+                    </div>
+                </div>
+                
+                <div class="component enterprise">
+                    <div class="component-title">🏢 Enterprise Considerations</div>
+                    <div class="component-desc">
+                        <strong>Compliance:</strong> Known operators vs anonymous L1 validators<br>
+                        <strong>Support:</strong> SLAs available from corporate L2 operators<br>
+                        <strong>Predictability:</strong> More controlled fee structures
+                    </div>
+                </div>
+                
+                <div class="timing-info">
+                    ⚡ <strong>Sub-second confirmations</strong> from sequencer<br>
+                    📦 Batch to L1 every few minutes via blobs
+                </div>
+            </div>
+        </div>
+        
+        <div class="mev-ecosystem">
+            <div class="mev-title">💰 MEV Ecosystem & Block Production</div>
+            <div class="mev-flow">
+                <div class="mev-actor">
+                    <strong>👥 Users</strong><br>
+                    Submit transactions to mempool<br>
+                    <em>~2M transactions/day</em>
+                </div>
+                <div class="arrow">→</div>
+                <div class="mev-actor">
+                    <strong>🧑‍💻 MEV Searchers</strong><br>
+                    Find arbitrage opportunities<br>
+                    <em>Identify profitable patterns</em>
+                </div>
+                <div class="arrow">→</div>
+                <div class="mev-actor">
+                    <strong>🏗️ Block Builders</strong><br>
+                    Optimize transaction ordering<br>
+                    <em>Flashbots, bloXroute, Titan</em>
+                </div>
+                <div class="arrow">→</div>
+                <div class="mev-actor">
+                    <strong>🔄 Relays</strong><br>
+                    Auction blocks to proposers<br>
+                    <em>Sealed bid competitions</em>
+                </div>
+                <div class="arrow">→</div>
+                <div class="mev-actor">
+                    <strong>👑 Proposer</strong><br>
+                    Selected validator chooses highest bid<br>
+                    <em>1 in 500K chance per slot</em>
+                </div>
+            </div>
+            
+            <div class="interactive-note">
+                <strong>MEV Reality Check:</strong> ~90% of validators use MEV-Boost. Average MEV per block: 0.1-0.3 ETH ($200-600). 
+                Solo validators earn more when selected as proposer but only get selected every 2-3 months.
+            </div>
+        </div>
+        
+        <div class="blob-section">
+            <div class="enterprise-title" style="color: #e67e22;">📊 Blob Data Flow (L2 → L1)</div>
+            <div class="blob-flow">
+                <div class="blob-step">
+                    <strong>L2 Users</strong><br>
+                    1000s of transactions<br>
+                    on Arbitrum, Base, etc.
+                </div>
+                <div class="arrow">→</div>
+                <div class="blob-step">
+                    <strong>L2 Sequencer</strong><br>
+                    Batches & compresses<br>
+                    into 128KB blob
+                </div>
+                <div class="arrow">→</div>
+                <div class="blob-step">
+                    <strong>Type-3 Transaction</strong><br>
+                    Posted to L1 with<br>
+                    blob reference hash
+                </div>
+                <div class="arrow">→</div>
+                <div class="blob-step">
+                    <strong>L1 Validators</strong><br>
+                    Store blob data<br>
+                    for 18 days
+                </div>
+            </div>
+            
+            <div style="margin-top: 15px;">
+                <strong>Current Limits:</strong> 6 blobs per block (768KB) | <strong>Future with PeerDAS:</strong> 16+ blobs (2MB+)<br>
+                <strong>Cost Impact:</strong> More blob space = cheaper L2 transactions | <strong>Competition:</strong> L2s bid for blob space
+            </div>
+        </div>
+        
+        <div class="enterprise-section">
+            <div class="enterprise-title">🏦 Enterprise Risk Analysis (Citibank Context)</div>
+            <div class="risk-matrix">
+                <div class="risk-card risk-medium">
+                    <strong>MEV/Sequencer Risk</strong><br>
+                    <em>Medium → Low</em><br>
+                    Mitigation: Direct sequencer relationships, private transaction pools, Based rollups (2025-2026)
+                </div>
+                <div class="risk-card risk-low">
+                    <strong>Transaction Ordering</strong><br>
+                    <em>Low</em><br>
+                    Solution: Smart contract design, nonce enforcement, atomic operations
+                </div>
+                <div class="risk-card risk-medium">
+                    <strong>Compliance Risk</strong><br>
+                    <em>L1: Medium | L2: Low</em><br>
+                    L2 advantage: Known operators (Coinbase, etc.) vs 500K anonymous validators
+                </div>
+                <div class="risk-card risk-medium">
+                    <strong>Exit Risk</strong><br>
+                    <em>Optimistic: 7 days | ZK: Immediate</em><br>
+                    Mitigation: Multi-L2 strategy, market maker relationships
+                </div>
+            </div>
+            
+            <div style="margin-top: 15px; padding: 15px; background: #e8f4fd; border-radius: 8px;">
+                <strong>Enterprise Reality:</strong> L2s reduce compliance burden (known entities) but require proper architecture for MEV protection and operational continuity.
+            </div>
+        </div>
+        
+        <div class="roadmap-section">
+            <div class="enterprise-title" style="color: white;">🚀 Performance Improvement Roadmap</div>
+            <div class="roadmap-timeline">
+                <div class="roadmap-item">
+                    <strong>2025: Fusaka Upgrade</strong><br>
+                    • Gas limit: 30M → 45M → 150M<br>
+                    • PeerDAS: Efficient blob sampling<br>
+                    • ~18-25 TPS on L1
+                </div>
+                <div class="roadmap-item">
+                    <strong>2026: Glamsterdam</strong><br>
+                    • Block time: 12s → 6s<br>
+                    • Verkle trees (stateless clients)<br>
+                    • ~40-50 TPS on L1
+                </div>
+                <div class="roadmap-item">
+                    <strong>2027+: Advanced Features</strong><br>
+                    • Single Slot Finality (12s)<br>
+                    • Based rollups (decentralized sequencing)<br>
+                    • RISC-V execution (100x speed)
+                </div>
+                <div class="roadmap-item">
+                    <strong>L2 Scaling</strong><br>
+                    • 16+ blobs per block<br>
+                    • Cross-rollup composability<br>
+                    • 1M+ TPS ecosystem capacity
+                </div>
+            </div>
+        </div>
+        
+        <div class="interactive-note">
+            <strong>🎯 Key Takeaway:</strong> Ethereum's architecture balances decentralization with performance. L1 provides security foundation (~15 TPS), 
+            L2s provide scale (~100K TPS), and the roadmap addresses enterprise concerns while maintaining decentralization principles.
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color consensus"></div>
+                <span>Consensus Layer</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color execution"></div>
+                <span>Execution Layer</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color mev"></div>
+                <span>MEV/Economic Layer</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color sequencer"></div>
+                <span>L2 Sequencing</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color blob"></div>
+                <span>Data Availability</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color enterprise"></div>
+                <span>Enterprise Layer</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
