@@ -332,16 +332,22 @@
             border-radius: 5px;
             font-weight: bold;
         }
+
+        @media (max-width: 768px) {
+            .comparison-section {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🌍 Why Ethereum Works</h1>
-        <div class="subtitle">The World's Most Powerful Shared Computer</div>
+        <h1 data-i18n="global_computer.title">🌍 Why Ethereum Works</h1>
+        <div class="subtitle" data-i18n="global_computer.subtitle">The World's Most Powerful Shared Computer</div>
         
         <div class="hero-section">
-            <div class="hero-title">Imagine if the entire internet was one giant computer...</div>
-            <div class="hero-subtitle">
+            <div class="hero-title" data-i18n="global_computer.hero_title">Imagine if the entire internet was one giant computer...</div>
+            <div class="hero-subtitle" data-i18n="global_computer.hero_subtitle">
                 That's Ethereum: 500,000+ computers worldwide working together as one unstoppable system. 
                 When you send a transaction, you're not just moving money—you're participating in the largest 
                 coordination system humanity has ever built.
@@ -350,47 +356,47 @@
         
         <div class="comparison-section">
             <div class="comparison-card old-way">
-                <h2>🏦 The Old Way</h2>
-                <p><strong>Banks control everything:</strong></p>
+                <h2 data-i18n="global_computer.comparison_old_way_title">🏦 The Old Way</h2>
+                <p><strong data-i18n="global_computer.comparison_old_way_desc">Banks control everything:</strong></p>
                 <ul style="text-align: left; font-size: 1.1em;">
-                    <li>They can freeze your account</li>
-                    <li>Transfers take days</li>
-                    <li>High fees for international payments</li>
-                    <li>Limited to business hours</li>
-                    <li>Single point of failure</li>
-                    <li>No innovation without permission</li>
+                    <li data-i18n="global_computer.old_way_1">They can freeze your account</li>
+                    <li data-i18n="global_computer.old_way_2">Transfers take days</li>
+                    <li data-i18n="global_computer.old_way_3">High fees for international payments</li>
+                    <li data-i18n="global_computer.old_way_4">Limited to business hours</li>
+                    <li data-i18n="global_computer.old_way_5">Single point of failure</li>
+                    <li data-i18n="global_computer.old_way_6">No innovation without permission</li>
                 </ul>
             </div>
             
             <div class="comparison-card ethereum-way">
-                <h2>⚡ The Ethereum Way</h2>
-                <p><strong>No one controls it, everyone benefits:</strong></p>
+                <h2 data-i18n="global_computer.comparison_eth_way_title">⚡ The Ethereum Way</h2>
+                <p><strong data-i18n="global_computer.comparison_eth_way_desc">No one controls it, everyone benefits:</strong></p>
                 <ul style="text-align: left; font-size: 1.1em;">
-                    <li>Your money, your control</li>
-                    <li>Transactions in seconds</li>
-                    <li>Global reach, low costs</li>
-                    <li>Works 24/7/365</li>
-                    <li>500,000 computers securing it</li>
-                    <li>Anyone can build new financial tools</li>
+                    <li data-i18n="global_computer.eth_way_1">Your money, your control</li>
+                    <li data-i18n="global_computer.eth_way_2">Transactions in seconds</li>
+                    <li data-i18n="global_computer.eth_way_3">Global reach, low costs</li>
+                    <li data-i18n="global_computer.eth_way_4">Works 24/7/365</li>
+                    <li data-i18n="global_computer.eth_way_5">500,000 computers securing it</li>
+                    <li data-i18n="global_computer.eth_way_6">Anyone can build new financial tools</li>
                 </ul>
             </div>
         </div>
         
         <div class="journey-section">
-            <div class="journey-title">🚀 Your Transaction's Journey Through the Global Computer</div>
+            <div class="journey-title" data-i18n="global_computer.journey_title">🚀 Your Transaction's Journey Through the Global Computer</div>
             
             <div class="transaction-flow">
                 <div class="flow-step step-user">
                     <div class="step-icon">👤</div>
                     <div class="step-content">
-                        <div class="step-title">1. You Click Send</div>
-                        <div class="step-description">
+                        <div class="step-title" data-i18n="global_computer.step1_title">1. You Click Send</div>
+                        <div class="step-description" data-i18n="global_computer.step1_desc">
                             You want to send $100 to someone in Japan. Instead of calling your bank, 
                             you click "send" in your digital wallet.
                         </div>
                         <div class="step-why">
-                            <strong>Why this matters:</strong> No forms, no waiting for business hours, 
-                            no asking permission from a bank.
+                            <strong data-i18n="global_computer.step1_why">Why this matters:</strong> <span data-i18n="global_computer.step1_why_text">No forms, no waiting for business hours, 
+                            no asking permission from a bank.</span>
                         </div>
                     </div>
                 </div>
@@ -400,15 +406,15 @@
                 <div class="flow-step step-network">
                     <div class="step-icon">🌐</div>
                     <div class="step-content">
-                        <div class="step-title">2. The Network Receives Your Request</div>
+                        <div class="step-title" data-i18n="global_computer.step2_title">2. The Network Receives Your Request</div>
                         <div class="step-description">
-                            Your transaction joins a global queue with millions of others. 
-                            <span class="highlight">500,000 computers</span> around the world 
-                            immediately see your request.
+                            <span data-i18n="global_computer.step2_desc">Your transaction joins a global queue with millions of others.</span>
+                            <span class="highlight" data-i18n="global_computer.step2_highlight">500,000 computers</span>
+                            <span data-i18n="global_computer.step2_desc2">around the world immediately see your request.</span>
                         </div>
                         <div class="step-why">
-                            <strong>Why this matters:</strong> No single company can block you. 
-                            Even if 100,000 computers went offline, the other 400,000 would keep working.
+                            <strong data-i18n="global_computer.step2_why">Why this matters:</strong> <span data-i18n="global_computer.step2_why_text">No single company can block you. 
+                            Even if 100,000 computers went offline, the other 400,000 would keep working.</span>
                         </div>
                     </div>
                 </div>
@@ -418,14 +424,14 @@
                 <div class="flow-step step-consensus">
                     <div class="step-icon">🗳️</div>
                     <div class="step-content">
-                        <div class="step-title">3. Democratic Selection Process</div>
-                        <div class="step-description">
+                        <div class="step-title" data-i18n="global_computer.step3_title">3. Democratic Selection Process</div>
+                        <div class="step-description" data-i18n="global_computer.step3_desc">
                             Every 12 seconds, the network randomly picks 1 computer out of 500,000 to be 
                             the "leader." This leader gets to organize the next batch of transactions.
                         </div>
                         <div class="step-why">
-                            <strong>Why this matters:</strong> It's impossible to corrupt because you can't 
-                            predict or control who gets chosen. It's like a fair lottery every 12 seconds.
+                            <strong data-i18n="global_computer.step3_why">Why this matters:</strong> <span data-i18n="global_computer.step3_why_text">It's impossible to corrupt because you can't 
+                            predict or control who gets chosen. It's like a fair lottery every 12 seconds.</span>
                         </div>
                     </div>
                 </div>
@@ -435,14 +441,14 @@
                 <div class="flow-step step-execution">
                     <div class="step-icon">⚡</div>
                     <div class="step-content">
-                        <div class="step-title">4. Your Transaction Gets Optimized</div>
-                        <div class="step-description">
+                        <div class="step-title" data-i18n="global_computer.step4_title">4. Your Transaction Gets Optimized</div>
+                        <div class="step-description" data-i18n="global_computer.step4_desc">
                             Smart computer programs compete to arrange transactions in the most efficient way. 
                             Your $100 transfer gets bundled with thousands of others for maximum efficiency.
                         </div>
                         <div class="step-why">
-                            <strong>Why this matters:</strong> Competition keeps fees low and processing fast. 
-                            No monopoly controls the process.
+                            <strong data-i18n="global_computer.step4_why">Why this matters:</strong> <span data-i18n="global_computer.step4_why_text">Competition keeps fees low and processing fast. 
+                            No monopoly controls the process.</span>
                         </div>
                     </div>
                 </div>
@@ -452,15 +458,15 @@
                 <div class="flow-step step-finality">
                     <div class="step-icon">✅</div>
                     <div class="step-content">
-                        <div class="step-title">5. Global Verification & Completion</div>
+                        <div class="step-title" data-i18n="global_computer.step5_title">5. Global Verification & Completion</div>
                         <div class="step-description">
-                            31 other randomly selected computers check the leader's work. If 2/3 agree 
-                            it's correct, your transaction is <span class="highlight">permanently recorded</span> 
-                            and the recipient gets their $100.
+                            <span data-i18n="global_computer.step5_desc">31 other randomly selected computers check the leader's work. If 2/3 agree 
+                            it's correct, your transaction is</span> <span class="highlight" data-i18n="global_computer.step5_highlight">permanently recorded</span> 
+                            <span data-i18n="global_computer.step5_desc2">and the recipient gets their $100.</span>
                         </div>
                         <div class="step-why">
-                            <strong>Why this matters:</strong> No single entity can fake or reverse transactions. 
-                            It's mathematically impossible to cheat the system.
+                            <strong data-i18n="global_computer.step5_why">Why this matters:</strong> <span data-i18n="global_computer.step5_why_text">No single entity can fake or reverse transactions. 
+                            It's mathematically impossible to cheat the system.</span>
                         </div>
                     </div>
                 </div>
@@ -468,129 +474,130 @@
         </div>
         
         <div class="analogy-box">
-            <div class="analogy-title">🏛️ Think of it like this:</div>
-            Imagine if every important decision in your city required 500,000 randomly selected citizens to participate, 
+            <div class="analogy-title" data-i18n="global_computer.analogy_title">🏛️ Think of it like this:</div>
+            <span data-i18n="global_computer.analogy_text">Imagine if every important decision in your city required 500,000 randomly selected citizens to participate, 
             with different people chosen every 12 seconds, and every decision was permanently recorded in a book that 
-            everyone could read but no one could erase. That's how Ethereum ensures fairness and prevents corruption.
+            everyone could read but no one could erase. That's how Ethereum ensures fairness and prevents corruption.</span>
         </div>
         
         <div class="magic-section">
-            <div class="magic-title">✨ What Makes This So Powerful?</div>
+            <div class="magic-title" data-i18n="global_computer.magic_title">✨ What Makes This So Powerful?</div>
             
             <div class="benefits-grid">
                 <div class="benefit-card benefit-global">
                     <div class="benefit-icon">🌍</div>
-                    <div class="benefit-title">Truly Global</div>
-                    <div>Send money anywhere instantly. No borders, no bank hours, no exchange restrictions.</div>
+                    <div class="benefit-title" data-i18n="global_computer.benefit_global_title">Truly Global</div>
+                    <div data-i18n="global_computer.benefit_global_desc">Send money anywhere instantly. No borders, no bank hours, no exchange restrictions.</div>
                 </div>
                 
                 <div class="benefit-card benefit-fast">
                     <div class="benefit-icon">⚡</div>
-                    <div class="benefit-title">Lightning Fast</div>
-                    <div>12-second confirmations on Layer 1, instant on Layer 2. Faster than any traditional bank.</div>
+                    <div class="benefit-title" data-i18n="global_computer.benefit_fast_title">Lightning Fast</div>
+                    <div data-i18n="global_computer.benefit_fast_desc">12-second confirmations on Layer 1, instant on Layer 2. Faster than any traditional bank.</div>
                 </div>
                 
                 <div class="benefit-card benefit-secure">
                     <div class="benefit-icon">🔒</div>
-                    <div class="benefit-title">Ultra Secure</div>
-                    <div>Protected by 500,000 computers. More secure than any single bank or government.</div>
+                    <div class="benefit-title" data-i18n="global_computer.benefit_secure_title">Ultra Secure</div>
+                    <div data-i18n="global_computer.benefit_secure_desc">Protected by 500,000 computers. More secure than any single bank or government.</div>
                 </div>
                 
                 <div class="benefit-card benefit-fair">
                     <div class="benefit-icon">⚖️</div>
-                    <div class="benefit-title">Perfectly Fair</div>
-                    <div>Random selection every 12 seconds. No one can control or manipulate the system.</div>
+                    <div class="benefit-title" data-i18n="global_computer.benefit_fair_title">Perfectly Fair</div>
+                    <div data-i18n="global_computer.benefit_fair_desc">Random selection every 12 seconds. No one can control or manipulate the system.</div>
                 </div>
                 
                 <div class="benefit-card benefit-smart">
                     <div class="benefit-icon">🧠</div>
-                    <div class="benefit-title">Programmable Money</div>
-                    <div>Money that follows rules automatically. Create savings accounts, loans, insurance—all without banks.</div>
+                    <div class="benefit-title" data-i18n="global_computer.benefit_smart_title">Programmable Money</div>
+                    <div data-i18n="global_computer.benefit_smart_desc">Money that follows rules automatically. Create savings accounts, loans, insurance—all without banks.</div>
                 </div>
                 
                 <div class="benefit-card benefit-cheap">
                     <div class="benefit-icon">💰</div>
-                    <div class="benefit-title">Lower Costs</div>
-                    <div>No middlemen taking cuts. Direct peer-to-peer transactions with minimal fees.</div>
+                    <div class="benefit-title" data-i18n="global_computer.benefit_cheap_title">Lower Costs</div>
+                    <div data-i18n="global_computer.benefit_cheap_desc">No middlemen taking cuts. Direct peer-to-peer transactions with minimal fees.</div>
                 </div>
             </div>
         </div>
         
         <div class="performance-showcase">
-            <div class="performance-title">📊 The Numbers Are Incredible</div>
+            <div class="performance-title" data-i18n="global_computer.performance_title">📊 The Numbers Are Incredible</div>
             
             <div class="performance-stats">
                 <div class="stat-card">
                     <div class="stat-number">500K+</div>
-                    <div class="stat-label">Computers Securing the Network</div>
+                    <div class="stat-label" data-i18n="global_computer.stat_computers">Computers Securing the Network</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">12 sec</div>
-                    <div class="stat-label">Time Between Blocks</div>
+                    <div class="stat-label" data-i18n="global_computer.stat_block_time">Time Between Blocks</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">100K+</div>
-                    <div class="stat-label">Transactions Per Second (with Layer 2)</div>
+                    <div class="stat-label" data-i18n="global_computer.stat_tps">Transactions Per Second (with Layer 2)</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">24/7</div>
-                    <div class="stat-label">Always Running (9+ Years)</div>
+                    <div class="stat-label" data-i18n="global_computer.stat_uptime">Always Running (9+ Years)</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">$2T+</div>
-                    <div class="stat-label">Value Secured</div>
+                    <div class="stat-label" data-i18n="global_computer.stat_value">Value Secured</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">99.9%</div>
-                    <div class="stat-label">Uptime</div>
+                    <div class="stat-label" data-i18n="global_computer.stat_reliability">Uptime</div>
                 </div>
             </div>
             
             <div style="text-align: center; margin-top: 30px; font-size: 1.2em;">
-                <strong>Translation:</strong> More reliable than traditional banking systems, 
-                faster than credit cards, and more secure than any single institution.
+                <strong data-i18n="global_computer.performance_translation">Translation:</strong> <span data-i18n="global_computer.performance_summary">More reliable than traditional banking systems, 
+                faster than credit cards, and more secure than any single institution.</span>
             </div>
         </div>
         
         <div class="future-section">
-            <h2>🚀 It's Getting Even Better</h2>
-            <p style="font-size: 1.2em; margin-bottom: 30px;">
+            <h2 data-i18n="global_computer.future_title">🚀 It's Getting Even Better</h2>
+            <p style="font-size: 1.2em; margin-bottom: 30px;" data-i18n="global_computer.future_subtitle">
                 The system continuously improves itself through community-driven upgrades
             </p>
             
             <div class="future-timeline">
                 <div class="timeline-item">
                     <div class="timeline-year">2025</div>
-                    <div>Faster processing, cheaper fees, better efficiency</div>
+                    <div data-i18n="global_computer.future_2025">Faster processing, cheaper fees, better efficiency</div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-year">2026</div>
-                    <div>6-second confirmations, even lower costs</div>
+                    <div data-i18n="global_computer.future_2026">6-second confirmations, even lower costs</div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-year">2027+</div>
-                    <div>Instant finality, 1M+ transactions per second</div>
+                    <div data-i18n="global_computer.future_2027">Instant finality, 1M+ transactions per second</div>
                 </div>
             </div>
         </div>
         
         <div class="analogy-box">
-            <div class="analogy-title">🌟 The Big Picture:</div>
-            We're witnessing the birth of a new kind of infrastructure—like the internet, but for money and agreements. 
-            Just as the internet made information flow freely, Ethereum makes value and trust flow freely. 
-            <strong>You're not just using a payment system; you're participating in the future of human coordination.</strong>
+            <div class="analogy-title" data-i18n="global_computer.big_picture_title">🌟 The Big Picture:</div>
+            <span data-i18n="global_computer.big_picture_text">We're witnessing the birth of a new kind of infrastructure—like the internet, but for money and agreements. 
+            Just as the internet made information flow freely, Ethereum makes value and trust flow freely.</span>
+            <strong data-i18n="global_computer.big_picture_bold">You're not just using a payment system; you're participating in the future of human coordination.</strong>
         </div>
         
         <div class="call-to-action">
-            <div class="cta-title">This Is Why Ethereum Matters</div>
+            <div class="cta-title" data-i18n="global_computer.cta_title">This Is Why Ethereum Matters</div>
             <div class="cta-subtitle">
-                It's not just about cryptocurrency. It's about creating a fair, open, and powerful system 
+                <span data-i18n="global_computer.cta_text">It's not just about cryptocurrency. It's about creating a fair, open, and powerful system 
                 that works for everyone, everywhere, all the time. No single company or government can 
-                control it, shut it down, or exclude you from it.
+                control it, shut it down, or exclude you from it.</span>
                 <br><br>
-                <strong>This is what the future of money, agreements, and human coordination looks like.</strong>
+                <strong data-i18n="global_computer.cta_bold">This is what the future of money, agreements, and human coordination looks like.</strong>
             </div>
         </div>
     </div>
+    <script src="i18n.js"></script>
 </body>
 </html>

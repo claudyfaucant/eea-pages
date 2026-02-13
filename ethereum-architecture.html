@@ -294,269 +294,262 @@
             text-align: center;
             font-style: italic;
         }
+
+        @media (max-width: 900px) {
+            .architecture-overview { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🌐 Complete Ethereum Architecture: L1, L2, MEV & Enterprise</h1>
+        <h1 data-i18n="architecture.title">🌐 Complete Ethereum Architecture: L1, L2, MEV & Enterprise</h1>
         
         <div class="performance-metrics">
             <div class="metric-card metric-l1">
-                <h3>L1 Current</h3>
-                <div style="font-size: 2em; font-weight: bold;">~15 TPS</div>
-                <div>30M gas limit</div>
+                <h3 data-i18n="architecture.l1_current">L1 Current</h3>
+                <div style="font-size: 2em; font-weight: bold;" data-i18n="architecture.l1_tps">~15 TPS</div>
+                <div data-i18n="architecture.l1_gas">30M gas limit</div>
             </div>
             <div class="metric-card metric-l2">
-                <h3>L2 Ecosystem</h3>
-                <div style="font-size: 2em; font-weight: bold;">~100K TPS</div>
-                <div>Combined capacity</div>
+                <h3 data-i18n="architecture.l2_ecosystem">L2 Ecosystem</h3>
+                <div style="font-size: 2em; font-weight: bold;" data-i18n="architecture.l2_tps">~100K TPS</div>
+                <div data-i18n="architecture.l2_capacity">Combined capacity</div>
             </div>
             <div class="metric-card metric-future">
-                <h3>Roadmap Target</h3>
-                <div style="font-size: 2em; font-weight: bold;">~1M TPS</div>
-                <div>With full scaling</div>
+                <h3 data-i18n="architecture.roadmap_target">Roadmap Target</h3>
+                <div style="font-size: 2em; font-weight: bold;" data-i18n="architecture.roadmap_tps">~1M TPS</div>
+                <div data-i18n="architecture.roadmap_scaling">With full scaling</div>
             </div>
         </div>
         
         <div class="architecture-overview">
             <div class="layer">
-                <div class="layer-title l1-title">Layer 1 (Ethereum Mainnet)</div>
+                <div class="layer-title l1-title" data-i18n="architecture.layer1_title">Layer 1 (Ethereum Mainnet)</div>
                 
                 <div class="component consensus">
-                    <div class="component-title">🎯 Consensus Client (Beacon Chain)</div>
+                    <div class="component-title" data-i18n="architecture.consensus_title">🎯 Consensus Client (Beacon Chain)</div>
                     <div class="component-desc">
-                        <strong>Manages:</strong> 500K+ validators, random proposer selection every 12 seconds<br>
-                        <strong>Clients:</strong> Prysm, Lighthouse, Teku, Nimbus<br>
-                        <strong>Function:</strong> Validator coordination, finality, attestations
+                        <strong data-i18n="architecture.consensus_manages">Manages:</strong> <span data-i18n="architecture.consensus_manages_text">500K+ validators, random proposer selection every 12 seconds</span><br>
+                        <strong data-i18n="architecture.consensus_clients">Clients:</strong> <span data-i18n="architecture.consensus_clients_text">Prysm, Lighthouse, Teku, Nimbus</span><br>
+                        <strong data-i18n="architecture.consensus_function">Function:</strong> <span data-i18n="architecture.consensus_function_text">Validator coordination, finality, attestations</span>
                     </div>
                 </div>
                 
                 <div class="component execution">
-                    <div class="component-title">⚡ Execution Client (EVM)</div>
+                    <div class="component-title" data-i18n="architecture.execution_title">⚡ Execution Client (EVM)</div>
                     <div class="component-desc">
-                        <strong>Manages:</strong> Transaction processing, state updates, smart contracts<br>
-                        <strong>Clients:</strong> Geth, Besu, Nethermind, Erigon<br>
-                        <strong>Function:</strong> Mempool management, gas calculation, EVM execution
+                        <strong data-i18n="architecture.execution_manages">Manages:</strong> <span data-i18n="architecture.execution_manages_text">Transaction processing, state updates, smart contracts</span><br>
+                        <strong data-i18n="architecture.execution_clients">Clients:</strong> <span data-i18n="architecture.execution_clients_text">Geth, Besu, Nethermind, Erigon</span><br>
+                        <strong data-i18n="architecture.execution_function">Function:</strong> <span data-i18n="architecture.execution_function_text">Mempool management, gas calculation, EVM execution</span>
                     </div>
                 </div>
                 
                 <div class="component blob">
-                    <div class="component-title">📦 Data Availability (Blobs)</div>
+                    <div class="component-title" data-i18n="architecture.data_title">📦 Data Availability (Blobs)</div>
                     <div class="component-desc">
-                        <strong>Current:</strong> 6 blobs per block (768KB), 18-day retention<br>
-                        <strong>Users:</strong> L2 rollups posting transaction batches<br>
-                        <strong>Storage:</strong> Consensus layer, not execution layer
+                        <strong data-i18n="architecture.data_current">Current:</strong> <span data-i18n="architecture.data_current_text">6 blobs per block (768KB), 18-day retention</span><br>
+                        <strong data-i18n="architecture.data_users">Users:</strong> <span data-i18n="architecture.data_users_text">L2 rollups posting transaction batches</span><br>
+                        <strong data-i18n="architecture.data_storage">Storage:</strong> <span data-i18n="architecture.data_storage_text">Consensus layer, not execution layer</span>
                     </div>
                 </div>
                 
                 <div class="timing-info">
-                    ⏱️ <strong>12-second slots</strong> | 32 slots per epoch<br>
-                    1 proposer + 31 attesters per slot
+                    ⏱️ <strong data-i18n="architecture.timing_info">12-second slots</strong> | <span data-i18n="architecture.timing_info2">32 slots per epoch</span><br>
+                    <span data-i18n="architecture.timing_info3">1 proposer + 31 attesters per slot</span>
                 </div>
             </div>
             
             <div class="layer">
-                <div class="layer-title l2-title">Layer 2 (Rollup Ecosystem)</div>
+                <div class="layer-title l2-title" data-i18n="architecture.layer2_title">Layer 2 (Rollup Ecosystem)</div>
                 
                 <div class="component sequencer">
-                    <div class="component-title">🎼 Sequencer (Current: Centralized)</div>
+                    <div class="component-title" data-i18n="architecture.sequencer_title">🎼 Sequencer (Current: Centralized)</div>
                     <div class="component-desc">
-                        <strong>Function:</strong> Orders L2 transactions, provides instant confirmations<br>
-                        <strong>Examples:</strong> Base (Coinbase), Arbitrum (Offchain Labs)<br>
-                        <strong>Evolution:</strong> Moving to Based rollups (L1 validators as sequencers)
+                        <strong data-i18n="architecture.sequencer_function">Function:</strong> <span data-i18n="architecture.sequencer_function_text">Orders L2 transactions, provides instant confirmations</span><br>
+                        <strong data-i18n="architecture.sequencer_examples">Examples:</strong> <span data-i18n="architecture.sequencer_examples_text">Base (Coinbase), Arbitrum (Offchain Labs)</span><br>
+                        <strong data-i18n="architecture.sequencer_evolution">Evolution:</strong> <span data-i18n="architecture.sequencer_evolution_text">Moving to Based rollups (L1 validators as sequencers)</span>
                     </div>
                 </div>
                 
                 <div class="component prover">
-                    <div class="component-title">✅ Validators/Provers</div>
+                    <div class="component-title" data-i18n="architecture.prover_title">✅ Validators/Provers</div>
                     <div class="component-desc">
-                        <strong>Optimistic:</strong> Fraud proof system, 7-day withdrawal period<br>
-                        <strong>ZK Rollups:</strong> Mathematical proofs, instant finality<br>
-                        <strong>Function:</strong> Verify state transitions, enable withdrawals
+                        <strong data-i18n="architecture.prover_optimistic">Optimistic:</strong> <span data-i18n="architecture.prover_optimistic_text">Fraud proof system, 7-day withdrawal period</span><br>
+                        <strong data-i18n="architecture.prover_zk">ZK Rollups:</strong> <span data-i18n="architecture.prover_zk_text">Mathematical proofs, instant finality</span><br>
+                        <strong data-i18n="architecture.prover_function">Function:</strong> <span data-i18n="architecture.prover_function_text">Verify state transitions, enable withdrawals</span>
                     </div>
                 </div>
                 
                 <div class="component enterprise">
-                    <div class="component-title">🏢 Enterprise Considerations</div>
+                    <div class="component-title" data-i18n="architecture.enterprise_title">🏢 Enterprise Considerations</div>
                     <div class="component-desc">
-                        <strong>Compliance:</strong> Known operators vs anonymous L1 validators<br>
-                        <strong>Support:</strong> SLAs available from corporate L2 operators<br>
-                        <strong>Predictability:</strong> More controlled fee structures
+                        <strong data-i18n="architecture.enterprise_compliance">Compliance:</strong> <span data-i18n="architecture.enterprise_compliance_text">Known operators vs anonymous L1 validators</span><br>
+                        <strong data-i18n="architecture.enterprise_support">Support:</strong> <span data-i18n="architecture.enterprise_support_text">SLAs available from corporate L2 operators</span><br>
+                        <strong data-i18n="architecture.enterprise_predictability">Predictability:</strong> <span data-i18n="architecture.enterprise_predictability_text">More controlled fee structures</span>
                     </div>
                 </div>
                 
                 <div class="timing-info">
-                    ⚡ <strong>Sub-second confirmations</strong> from sequencer<br>
-                    📦 Batch to L1 every few minutes via blobs
+                    ⚡ <strong data-i18n="architecture.l2_timing">Sub-second confirmations</strong> <span data-i18n="architecture.l2_timing2">from sequencer</span><br>
+                    📦 <span data-i18n="architecture.l2_timing3">Batch to L1 every few minutes via blobs</span>
                 </div>
             </div>
         </div>
         
         <div class="mev-ecosystem">
-            <div class="mev-title">💰 MEV Ecosystem & Block Production</div>
+            <div class="mev-title" data-i18n="architecture.mev_title">💰 MEV Ecosystem & Block Production</div>
             <div class="mev-flow">
                 <div class="mev-actor">
-                    <strong>👥 Users</strong><br>
-                    Submit transactions to mempool<br>
-                    <em>~2M transactions/day</em>
+                    <strong data-i18n="architecture.mev_users">👥 Users</strong><br>
+                    <span data-i18n="architecture.mev_users_desc">Submit transactions to mempool</span><br>
+                    <em data-i18n="architecture.mev_users_stat">~2M transactions/day</em>
                 </div>
                 <div class="arrow">→</div>
                 <div class="mev-actor">
-                    <strong>🧑‍💻 MEV Searchers</strong><br>
-                    Find arbitrage opportunities<br>
-                    <em>Identify profitable patterns</em>
+                    <strong data-i18n="architecture.mev_searchers">🧑‍💻 MEV Searchers</strong><br>
+                    <span data-i18n="architecture.mev_searchers_desc">Find arbitrage opportunities</span><br>
+                    <em data-i18n="architecture.mev_searchers_stat">Identify profitable patterns</em>
                 </div>
                 <div class="arrow">→</div>
                 <div class="mev-actor">
-                    <strong>🏗️ Block Builders</strong><br>
-                    Optimize transaction ordering<br>
-                    <em>Flashbots, bloXroute, Titan</em>
+                    <strong data-i18n="architecture.mev_builders">🏗️ Block Builders</strong><br>
+                    <span data-i18n="architecture.mev_builders_desc">Optimize transaction ordering</span><br>
+                    <em data-i18n="architecture.mev_builders_stat">Flashbots, bloXroute, Titan</em>
                 </div>
                 <div class="arrow">→</div>
                 <div class="mev-actor">
-                    <strong>🔄 Relays</strong><br>
-                    Auction blocks to proposers<br>
-                    <em>Sealed bid competitions</em>
+                    <strong data-i18n="architecture.mev_relays">🔄 Relays</strong><br>
+                    <span data-i18n="architecture.mev_relays_desc">Auction blocks to proposers</span><br>
+                    <em data-i18n="architecture.mev_relays_stat">Sealed bid competitions</em>
                 </div>
                 <div class="arrow">→</div>
                 <div class="mev-actor">
-                    <strong>👑 Proposer</strong><br>
-                    Selected validator chooses highest bid<br>
-                    <em>1 in 500K chance per slot</em>
+                    <strong data-i18n="architecture.mev_proposer">👑 Proposer</strong><br>
+                    <span data-i18n="architecture.mev_proposer_desc">Selected validator chooses highest bid</span><br>
+                    <em data-i18n="architecture.mev_proposer_stat">1 in 500K chance per slot</em>
                 </div>
             </div>
             
             <div class="interactive-note">
-                <strong>MEV Reality Check:</strong> ~90% of validators use MEV-Boost. Average MEV per block: 0.1-0.3 ETH ($200-600). 
-                Solo validators earn more when selected as proposer but only get selected every 2-3 months.
+                <strong data-i18n="architecture.mev_note">MEV Reality Check:</strong> <span data-i18n="architecture.mev_note_text">~90% of validators use MEV-Boost. Average MEV per block: 0.1-0.3 ETH ($200-600). 
+                Solo validators earn more when selected as proposer but only get selected every 2-3 months.</span>
             </div>
         </div>
         
         <div class="blob-section">
-            <div class="enterprise-title" style="color: #e67e22;">📊 Blob Data Flow (L2 → L1)</div>
+            <div class="enterprise-title" style="color: #e67e22;" data-i18n="architecture.blob_title">📊 Blob Data Flow (L2 → L1)</div>
             <div class="blob-flow">
                 <div class="blob-step">
-                    <strong>L2 Users</strong><br>
-                    1000s of transactions<br>
-                    on Arbitrum, Base, etc.
+                    <strong data-i18n="architecture.blob_step1">L2 Users</strong><br>
+                    <span data-i18n="architecture.blob_step1_desc">1000s of transactions on Arbitrum, Base, etc.</span>
                 </div>
                 <div class="arrow">→</div>
                 <div class="blob-step">
-                    <strong>L2 Sequencer</strong><br>
-                    Batches & compresses<br>
-                    into 128KB blob
+                    <strong data-i18n="architecture.blob_step2">L2 Sequencer</strong><br>
+                    <span data-i18n="architecture.blob_step2_desc">Batches & compresses into 128KB blob</span>
                 </div>
                 <div class="arrow">→</div>
                 <div class="blob-step">
-                    <strong>Type-3 Transaction</strong><br>
-                    Posted to L1 with<br>
-                    blob reference hash
+                    <strong data-i18n="architecture.blob_step3">Type-3 Transaction</strong><br>
+                    <span data-i18n="architecture.blob_step3_desc">Posted to L1 with blob reference hash</span>
                 </div>
                 <div class="arrow">→</div>
                 <div class="blob-step">
-                    <strong>L1 Validators</strong><br>
-                    Store blob data<br>
-                    for 18 days
+                    <strong data-i18n="architecture.blob_step4">L1 Validators</strong><br>
+                    <span data-i18n="architecture.blob_step4_desc">Store blob data for 18 days</span>
                 </div>
             </div>
             
             <div style="margin-top: 15px;">
-                <strong>Current Limits:</strong> 6 blobs per block (768KB) | <strong>Future with PeerDAS:</strong> 16+ blobs (2MB+)<br>
-                <strong>Cost Impact:</strong> More blob space = cheaper L2 transactions | <strong>Competition:</strong> L2s bid for blob space
+                <strong data-i18n="architecture.blob_limits">Current Limits:</strong> <span data-i18n="architecture.blob_limits_text">6 blobs per block (768KB)</span> | <strong data-i18n="architecture.blob_future">Future with PeerDAS:</strong> <span data-i18n="architecture.blob_future_text">16+ blobs (2MB+)</span><br>
+                <strong data-i18n="architecture.blob_cost">Cost Impact:</strong> <span data-i18n="architecture.blob_cost_text">More blob space = cheaper L2 transactions</span> | <strong data-i18n="architecture.blob_competition">Competition:</strong> <span data-i18n="architecture.blob_competition_text">L2s bid for blob space</span>
             </div>
         </div>
         
         <div class="enterprise-section">
-            <div class="enterprise-title">🏦 Enterprise Risk Analysis (Citibank Context)</div>
+            <div class="enterprise-title" data-i18n="architecture.risk_title">🏦 Enterprise Risk Analysis (Citibank Context)</div>
             <div class="risk-matrix">
                 <div class="risk-card risk-medium">
-                    <strong>MEV/Sequencer Risk</strong><br>
-                    <em>Medium → Low</em><br>
-                    Mitigation: Direct sequencer relationships, private transaction pools, Based rollups (2025-2026)
+                    <strong data-i18n="architecture.risk_mev">MEV/Sequencer Risk</strong><br>
+                    <em data-i18n="architecture.risk_mev_level">Medium → Low</em><br>
+                    <span data-i18n="architecture.risk_mev_text">Mitigation: Direct sequencer relationships, private transaction pools, Based rollups (2025-2026)</span>
                 </div>
                 <div class="risk-card risk-low">
-                    <strong>Transaction Ordering</strong><br>
-                    <em>Low</em><br>
-                    Solution: Smart contract design, nonce enforcement, atomic operations
+                    <strong data-i18n="architecture.risk_ordering">Transaction Ordering</strong><br>
+                    <em data-i18n="architecture.risk_ordering_level">Low</em><br>
+                    <span data-i18n="architecture.risk_ordering_text">Solution: Smart contract design, nonce enforcement, atomic operations</span>
                 </div>
                 <div class="risk-card risk-medium">
-                    <strong>Compliance Risk</strong><br>
-                    <em>L1: Medium | L2: Low</em><br>
-                    L2 advantage: Known operators (Coinbase, etc.) vs 500K anonymous validators
+                    <strong data-i18n="architecture.risk_compliance">Compliance Risk</strong><br>
+                    <em data-i18n="architecture.risk_compliance_level">L1: Medium | L2: Low</em><br>
+                    <span data-i18n="architecture.risk_compliance_text">L2 advantage: Known operators (Coinbase, etc.) vs 500K anonymous validators</span>
                 </div>
                 <div class="risk-card risk-medium">
-                    <strong>Exit Risk</strong><br>
-                    <em>Optimistic: 7 days | ZK: Immediate</em><br>
-                    Mitigation: Multi-L2 strategy, market maker relationships
+                    <strong data-i18n="architecture.risk_exit">Exit Risk</strong><br>
+                    <em data-i18n="architecture.risk_exit_level">Optimistic: 7 days | ZK: Immediate</em><br>
+                    <span data-i18n="architecture.risk_exit_text">Mitigation: Multi-L2 strategy, market maker relationships</span>
                 </div>
             </div>
             
             <div style="margin-top: 15px; padding: 15px; background: #e8f4fd; border-radius: 8px;">
-                <strong>Enterprise Reality:</strong> L2s reduce compliance burden (known entities) but require proper architecture for MEV protection and operational continuity.
+                <strong data-i18n="architecture.risk_reality">Enterprise Reality:</strong> <span data-i18n="architecture.risk_reality_text">L2s reduce compliance burden (known entities) but require proper architecture for MEV protection and operational continuity.</span>
             </div>
         </div>
         
         <div class="roadmap-section">
-            <div class="enterprise-title" style="color: white;">🚀 Performance Improvement Roadmap</div>
+            <div class="enterprise-title" style="color: white;" data-i18n="architecture.roadmap_section_title">🚀 Performance Improvement Roadmap</div>
             <div class="roadmap-timeline">
                 <div class="roadmap-item">
-                    <strong>2025: Fusaka Upgrade</strong><br>
-                    • Gas limit: 30M → 45M → 150M<br>
-                    • PeerDAS: Efficient blob sampling<br>
-                    • ~18-25 TPS on L1
+                    <strong data-i18n="architecture.roadmap_2025">2025: Fusaka Upgrade</strong><br>
+                    <span data-i18n="architecture.roadmap_2025_text" data-i18n-html>• Gas limit: 30M → 45M → 150M<br>• PeerDAS: Efficient blob sampling<br>• ~18-25 TPS on L1</span>
                 </div>
                 <div class="roadmap-item">
-                    <strong>2026: Glamsterdam</strong><br>
-                    • Block time: 12s → 6s<br>
-                    • Verkle trees (stateless clients)<br>
-                    • ~40-50 TPS on L1
+                    <strong data-i18n="architecture.roadmap_2026">2026: Glamsterdam</strong><br>
+                    <span data-i18n="architecture.roadmap_2026_text" data-i18n-html>• Block time: 12s → 6s<br>• Verkle trees (stateless clients)<br>• ~40-50 TPS on L1</span>
                 </div>
                 <div class="roadmap-item">
-                    <strong>2027+: Advanced Features</strong><br>
-                    • Single Slot Finality (12s)<br>
-                    • Based rollups (decentralized sequencing)<br>
-                    • RISC-V execution (100x speed)
+                    <strong data-i18n="architecture.roadmap_2027">2027+: Advanced Features</strong><br>
+                    <span data-i18n="architecture.roadmap_2027_text" data-i18n-html>• Single Slot Finality (12s)<br>• Based rollups (decentralized sequencing)<br>• RISC-V execution (100x speed)</span>
                 </div>
                 <div class="roadmap-item">
-                    <strong>L2 Scaling</strong><br>
-                    • 16+ blobs per block<br>
-                    • Cross-rollup composability<br>
-                    • 1M+ TPS ecosystem capacity
+                    <strong data-i18n="architecture.roadmap_l2">L2 Scaling</strong><br>
+                    <span data-i18n="architecture.roadmap_l2_text" data-i18n-html>• 16+ blobs per block<br>• Cross-rollup composability<br>• 1M+ TPS ecosystem capacity</span>
                 </div>
             </div>
         </div>
         
         <div class="interactive-note">
-            <strong>🎯 Key Takeaway:</strong> Ethereum's architecture balances decentralization with performance. L1 provides security foundation (~15 TPS), 
-            L2s provide scale (~100K TPS), and the roadmap addresses enterprise concerns while maintaining decentralization principles.
+            <strong data-i18n="architecture.key_takeaway">🎯 Key Takeaway:</strong> <span data-i18n="architecture.key_takeaway_text">Ethereum's architecture balances decentralization with performance. L1 provides security foundation (~15 TPS), 
+            L2s provide scale (~100K TPS), and the roadmap addresses enterprise concerns while maintaining decentralization principles.</span>
         </div>
         
         <div class="legend">
             <div class="legend-item">
                 <div class="legend-color consensus"></div>
-                <span>Consensus Layer</span>
+                <span data-i18n="architecture.legend_consensus">Consensus Layer</span>
             </div>
             <div class="legend-item">
                 <div class="legend-color execution"></div>
-                <span>Execution Layer</span>
+                <span data-i18n="architecture.legend_execution">Execution Layer</span>
             </div>
             <div class="legend-item">
                 <div class="legend-color mev"></div>
-                <span>MEV/Economic Layer</span>
+                <span data-i18n="architecture.legend_mev">MEV/Economic Layer</span>
             </div>
             <div class="legend-item">
                 <div class="legend-color sequencer"></div>
-                <span>L2 Sequencing</span>
+                <span data-i18n="architecture.legend_sequencer">L2 Sequencing</span>
             </div>
             <div class="legend-item">
                 <div class="legend-color blob"></div>
-                <span>Data Availability</span>
+                <span data-i18n="architecture.legend_blob">Data Availability</span>
             </div>
             <div class="legend-item">
                 <div class="legend-color enterprise"></div>
-                <span>Enterprise Layer</span>
+                <span data-i18n="architecture.legend_enterprise">Enterprise Layer</span>
             </div>
         </div>
     </div>
+    <script src="i18n.js"></script>
 </body>
 </html>

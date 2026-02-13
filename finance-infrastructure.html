@@ -22,11 +22,7 @@
             --border: rgba(0,0,0,0.1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'IBM Plex Sans', sans-serif;
@@ -43,56 +39,21 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 3rem 2rem;
+            background: var(--bg-primary);
         }
 
-        /* Header */
-        header {
-            margin-bottom: 3rem;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 2rem;
-        }
+        header { margin-bottom: 3rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
+        h1 { font-size: 2.5rem; font-weight: 300; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+        .subtitle { color: var(--text-secondary); font-size: 1.1rem; font-weight: 300; }
 
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 300;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.5rem;
-        }
-
-        .subtitle {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            font-weight: 300;
-        }
-
-        /* Legend */
-        .legend {
-            display: flex;
-            gap: 2rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .legend-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-        }
-
+        .legend { display: flex; gap: 2rem; margin: 2rem 0; flex-wrap: wrap; }
+        .legend-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: var(--text-secondary); }
+        .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
         .legend-dot.buy { background: var(--accent-buy); }
         .legend-dot.sell { background: var(--accent-sell); }
         .legend-dot.infra { background: var(--accent-infra); }
         .legend-dot.flow { background: var(--accent-flow); }
 
-        /* Context Banner */
         .context-banner {
             background: linear-gradient(135deg, rgba(124,138,255,0.08) 0%, rgba(0,212,170,0.04) 100%);
             border: 1px solid rgba(124,138,255,0.2);
@@ -100,50 +61,12 @@
             padding: 2rem;
             margin-bottom: 2rem;
         }
+        .context-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
+        .eea-badge { background: var(--accent-infra); color: var(--bg-primary); font-size: 0.75rem; font-weight: 600; padding: 0.35rem 0.6rem; border-radius: 4px; letter-spacing: 0.05em; }
+        .context-header h2 { font-size: 1.25rem; font-weight: 500; color: var(--text-primary); }
+        .context-banner p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 0.75rem; line-height: 1.7; }
+        .context-footer { font-size: 1rem; font-weight: 500; color: var(--text-primary); padding-top: 1rem; border-top: 1px solid var(--border); }
 
-        .context-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .eea-badge {
-            background: var(--accent-infra);
-            color: var(--bg-primary);
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 0.35rem 0.6rem;
-            border-radius: 4px;
-            letter-spacing: 0.05em;
-        }
-
-        .context-header h2 {
-            font-size: 1.25rem;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-
-        .context-banner p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.75rem;
-            line-height: 1.7;
-        }
-
-        .context-banner p:last-of-type {
-            margin-bottom: 1.25rem;
-        }
-
-        .context-footer {
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            padding-top: 1rem;
-            border-top: 1px solid var(--border);
-        }
-
-        /* Scale Banner */
         .scale-banner {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -154,41 +77,14 @@
             border: 1px solid rgba(0,180,216,0.2);
             border-radius: 12px;
         }
+        @media (max-width: 800px) { .scale-banner { grid-template-columns: repeat(2, 1fr); } }
+        .scale-item { text-align: center; }
+        .scale-value { font-size: 1.8rem; font-weight: 600; color: var(--accent-metric); font-family: 'IBM Plex Mono', monospace; }
+        .scale-label { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem; }
 
-        @media (max-width: 800px) {
-            .scale-banner { grid-template-columns: repeat(2, 1fr); }
-        }
+        .ecosystem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
+        @media (max-width: 900px) { .ecosystem-grid { grid-template-columns: 1fr; } }
 
-        .scale-item {
-            text-align: center;
-        }
-
-        .scale-value {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--accent-metric);
-            font-family: 'IBM Plex Mono', monospace;
-        }
-
-        .scale-label {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-top: 0.25rem;
-        }
-
-        /* Main Grid */
-        .ecosystem-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        @media (max-width: 900px) {
-            .ecosystem-grid { grid-template-columns: 1fr; }
-        }
-
-        /* Actor Cards */
         .actor-section {
             background: var(--bg-card);
             border-radius: 12px;
@@ -198,105 +94,26 @@
             position: relative;
             overflow: hidden;
         }
-
-        .actor-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-        }
-
+        .actor-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
         .actor-section.buy-side::before { background: var(--accent-buy); }
         .actor-section.sell-side::before { background: var(--accent-sell); }
 
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .section-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-        }
-
+        .section-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+        .section-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
         .buy-side .section-icon { background: rgba(0,212,170,0.15); color: var(--accent-buy); }
         .sell-side .section-icon { background: rgba(255,107,107,0.15); color: var(--accent-sell); }
+        .section-title { font-size: 1.1rem; font-weight: 500; }
+        .section-subtitle { font-size: 0.8rem; color: var(--text-muted); font-family: 'IBM Plex Mono', monospace; margin-top: 2px; }
+        .section-why { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; padding-left: 0.75rem; border-left: 2px solid var(--border); }
 
-        .section-title {
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
+        .actor-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .actor-tag { background: var(--bg-secondary); padding: 0.4rem 0.75rem; border-radius: 6px; font-size: 0.85rem; color: var(--text-secondary); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.2s ease; }
+        .actor-tag:hover { border-color: var(--text-muted); color: var(--text-primary); }
 
-        .section-subtitle {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            font-family: 'IBM Plex Mono', monospace;
-            margin-top: 2px;
-        }
-
-        .section-why {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            padding-left: 0.75rem;
-            border-left: 2px solid var(--border);
-        }
-
-        .actor-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .actor-tag {
-            background: var(--bg-secondary);
-            padding: 0.4rem 0.75rem;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            border: 1px solid rgba(0,0,0,0.08);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: all 0.2s ease;
-        }
-
-        .actor-tag:hover {
-            border-color: var(--text-muted);
-            color: var(--text-primary);
-        }
-
-        /* Infrastructure Section */
-        .infrastructure {
-            margin-top: 3rem;
-        }
-
-        .infra-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .infra-header h2 {
-            font-size: 1.5rem;
-            font-weight: 400;
-        }
-
-        .infra-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
+        .infrastructure { margin-top: 3rem; }
+        .infra-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+        .infra-header h2 { font-size: 1.5rem; font-weight: 400; }
+        .infra-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
 
         .infra-card {
             background: var(--bg-card);
@@ -309,447 +126,133 @@
             grid-template-columns: 1fr 1fr;
             gap: 1.5rem;
         }
+        @media (max-width: 900px) { .infra-card { grid-template-columns: 1fr; } }
+        .infra-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent-infra); border-radius: 12px 12px 0 0; }
 
-        @media (max-width: 900px) {
-            .infra-card { grid-template-columns: 1fr; }
-        }
+        .infra-left { display: flex; flex-direction: column; }
+        .infra-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.25rem; }
+        .infra-card h3 { font-size: 1.1rem; font-weight: 500; color: var(--accent-infra); }
+        .infra-abbrev { font-size: 0.7rem; color: var(--text-muted); background: var(--bg-secondary); padding: 0.2rem 0.5rem; border-radius: 4px; font-family: 'IBM Plex Mono', monospace; }
+        .infra-card .full-name { font-size: 0.8rem; color: var(--text-muted); font-style: italic; margin-bottom: 1rem; }
 
-        .infra-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--accent-infra);
-            border-radius: 12px 12px 0 0;
-        }
+        .problem-box { background: rgba(255,159,67,0.08); border: 1px solid rgba(255,159,67,0.2); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; }
+        .problem-label { font-size: 0.7rem; color: var(--accent-warning); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; font-weight: 600; }
+        .problem-text { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.75rem; }
+        .example-box { background: var(--bg-secondary); border-radius: 6px; padding: 0.75rem; margin-top: 0.5rem; }
+        .example-label { font-size: 0.65rem; color: var(--accent-sell); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; font-weight: 600; }
+        .example-text { font-size: 0.8rem; color: var(--text-secondary); }
+        .example-text strong { color: var(--text-primary); }
 
-        .infra-left {
-            display: flex;
-            flex-direction: column;
-        }
+        .solution-box { background: rgba(0,212,170,0.08); border: 1px solid rgba(0,212,170,0.2); border-radius: 8px; padding: 1rem; }
+        .solution-label { font-size: 0.7rem; color: var(--accent-buy); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; font-weight: 600; }
+        .solution-text { font-size: 0.85rem; color: var(--text-secondary); }
 
-        .infra-card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 0.25rem;
-        }
+        .infra-right { display: flex; flex-direction: column; }
+        .operators-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; font-weight: 500; }
+        .infra-examples { display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+        .example-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; padding: 0.5rem 0.75rem; background: var(--bg-secondary); border-radius: 6px; }
+        .example-name { color: var(--text-secondary); }
+        .example-stats { display: flex; gap: 0.5rem; align-items: center; }
+        .example-stat { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: var(--accent-metric); background: rgba(0,180,216,0.1); padding: 0.2rem 0.5rem; border-radius: 4px; }
+        .example-region { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--text-muted); }
 
-        .infra-card h3 {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--accent-infra);
-        }
+        .flows { margin-top: 3rem; }
+        .flow-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+        .flow-header h2 { font-size: 1.5rem; font-weight: 400; }
+        .flow-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        @media (max-width: 900px) { .flow-cards { grid-template-columns: 1fr; } }
 
-        .infra-abbrev {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            background: var(--bg-secondary);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-family: 'IBM Plex Mono', monospace;
-        }
+        .flow-card { background: var(--bg-card); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-radius: 12px; padding: 1.25rem; }
+        .flow-card h3 { font-size: 0.95rem; font-weight: 500; color: var(--accent-flow); margin-bottom: 0.5rem; }
+        .flow-card .flow-scale { font-size: 0.8rem; color: var(--accent-metric); margin-bottom: 1rem; font-family: 'IBM Plex Mono', monospace; }
+        .flow-steps { display: flex; flex-direction: column; gap: 0.75rem; }
+        .flow-step { display: flex; gap: 0.75rem; font-size: 0.85rem; color: var(--text-secondary); }
+        .step-num { width: 20px; height: 20px; background: var(--bg-secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-family: 'IBM Plex Mono', monospace; color: var(--text-muted); flex-shrink: 0; }
+        .step-text { flex: 1; }
+        .step-actor { color: var(--accent-infra); font-weight: 500; }
 
-        .infra-card .full-name {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
+        .glossary { margin-top: 3rem; background: var(--bg-card); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-radius: 12px; padding: 1.5rem; }
+        .glossary h3 { font-size: 1rem; font-weight: 500; margin-bottom: 1rem; color: var(--text-primary); }
+        .glossary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.75rem; }
+        .glossary-item { display: flex; gap: 0.75rem; font-size: 0.85rem; }
+        .glossary-term { font-family: 'IBM Plex Mono', monospace; color: var(--accent-infra); font-weight: 500; min-width: 70px; }
+        .glossary-def { color: var(--text-secondary); }
 
-        .problem-box {
-            background: rgba(255,159,67,0.08);
-            border: 1px solid rgba(255,159,67,0.2);
-            border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
+        .insight { margin-top: 3rem; background: linear-gradient(135deg, rgba(124,138,255,0.1) 0%, rgba(0,212,170,0.05) 100%); border: 1px solid rgba(124,138,255,0.2); border-radius: 12px; padding: 1.5rem; }
+        .insight h3 { font-size: 0.9rem; font-weight: 500; color: var(--accent-infra); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        @media (max-width: 700px) { .insight-grid { grid-template-columns: 1fr; } }
+        .insight-col h4 { font-size: 0.85rem; color: var(--accent-buy); margin-bottom: 0.5rem; }
+        .insight-col.hard h4 { color: var(--accent-sell); }
+        .insight-col ul { list-style: none; font-size: 0.85rem; color: var(--text-secondary); }
+        .insight-col li { padding: 0.25rem 0; padding-left: 1rem; position: relative; }
+        .insight-col li::before { content: '→'; position: absolute; left: 0; color: var(--text-muted); }
 
-        .problem-label {
-            font-size: 0.7rem;
-            color: var(--accent-warning);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .problem-text {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.75rem;
-        }
-
-        .example-box {
-            background: var(--bg-secondary);
-            border-radius: 6px;
-            padding: 0.75rem;
-            margin-top: 0.5rem;
-        }
-
-        .example-label {
-            font-size: 0.65rem;
-            color: var(--accent-sell);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.35rem;
-            font-weight: 600;
-        }
-
-        .example-text {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
-
-        .example-text strong {
-            color: var(--text-primary);
-        }
-
-        .solution-box {
-            background: rgba(0,212,170,0.08);
-            border: 1px solid rgba(0,212,170,0.2);
-            border-radius: 8px;
-            padding: 1rem;
-        }
-
-        .solution-label {
-            font-size: 0.7rem;
-            color: var(--accent-buy);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .solution-text {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .infra-right {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .operators-label {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.75rem;
-            font-weight: 500;
-        }
-
-        .infra-examples {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            flex: 1;
-        }
-
-        .example-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.85rem;
-            padding: 0.5rem 0.75rem;
-            background: var(--bg-secondary);
-            border-radius: 6px;
-        }
-
-        .example-name {
-            color: var(--text-secondary);
-        }
-
-        .example-stats {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-        }
-
-        .example-stat {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--accent-metric);
-            background: rgba(0,180,216,0.1);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-        }
-
-        .example-region {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.7rem;
-            color: var(--text-muted);
-        }
-
-        /* Flow Section */
-        .flows {
-            margin-top: 3rem;
-        }
-
-        .flow-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .flow-header h2 {
-            font-size: 1.5rem;
-            font-weight: 400;
-        }
-
-        .flow-cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        @media (max-width: 900px) {
-            .flow-cards { grid-template-columns: 1fr; }
-        }
-
-        .flow-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(0,0,0,0.08);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            border-radius: 12px;
-            padding: 1.25rem;
-        }
-
-        .flow-card h3 {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--accent-flow);
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .flow-card .flow-scale {
-            font-size: 0.8rem;
-            color: var(--accent-metric);
-            margin-bottom: 1rem;
-            font-family: 'IBM Plex Mono', monospace;
-        }
-
-        .flow-steps {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .flow-step {
-            display: flex;
-            gap: 0.75rem;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .step-num {
-            width: 20px;
-            height: 20px;
-            background: var(--bg-secondary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-            font-family: 'IBM Plex Mono', monospace;
-            color: var(--text-muted);
-            flex-shrink: 0;
-        }
-
-        .step-text {
-            flex: 1;
-        }
-
-        .step-actor {
-            color: var(--accent-infra);
-            font-weight: 500;
-        }
-
-        /* Glossary */
-        .glossary {
-            margin-top: 3rem;
-            background: var(--bg-card);
-            border: 1px solid rgba(0,0,0,0.08);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            border-radius: 12px;
-            padding: 1.5rem;
-        }
-
-        .glossary h3 {
-            font-size: 1rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .glossary-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 0.75rem;
-        }
-
-        .glossary-item {
-            display: flex;
-            gap: 0.75rem;
-            font-size: 0.85rem;
-        }
-
-        .glossary-term {
-            font-family: 'IBM Plex Mono', monospace;
-            color: var(--accent-infra);
-            font-weight: 500;
-            min-width: 70px;
-        }
-
-        .glossary-def {
-            color: var(--text-secondary);
-        }
-
-        /* Key Insight */
-        .insight {
-            margin-top: 3rem;
-            background: linear-gradient(135deg, rgba(124,138,255,0.1) 0%, rgba(0,212,170,0.05) 100%);
-            border: 1px solid rgba(124,138,255,0.2);
-            border-radius: 12px;
-            padding: 1.5rem;
-        }
-
-        .insight h3 {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--accent-infra);
-            margin-bottom: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .insight-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        @media (max-width: 700px) {
-            .insight-grid { grid-template-columns: 1fr; }
-        }
-
-        .insight-col h4 {
-            font-size: 0.85rem;
-            color: var(--accent-buy);
-            margin-bottom: 0.5rem;
-        }
-
-        .insight-col.hard h4 {
-            color: var(--accent-sell);
-        }
-
-        .insight-col ul {
-            list-style: none;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .insight-col li {
-            padding: 0.25rem 0;
-            padding-left: 1rem;
-            position: relative;
-        }
-
-        .insight-col li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--text-muted);
-        }
-
-        /* Footer */
-        footer {
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-        }
+        footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 0.8rem; }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Global Finance Infrastructure</h1>
-            <p class="subtitle">Actors, pipes, and how money moves</p>
+            <h1 data-i18n="finance.title">Global Finance Infrastructure</h1>
+            <p class="subtitle" data-i18n="finance.subtitle">Actors, pipes, and how money moves</p>
             <div class="legend">
-                <div class="legend-item"><div class="legend-dot buy"></div>Buy-Side (Capital Owners)</div>
-                <div class="legend-item"><div class="legend-dot sell"></div>Sell-Side (Intermediaries)</div>
-                <div class="legend-item"><div class="legend-dot infra"></div>Infrastructure (FMIs)</div>
-                <div class="legend-item"><div class="legend-dot flow"></div>Transaction Flows</div>
+                <div class="legend-item"><div class="legend-dot buy"></div><span data-i18n="finance.legend_buy">Buy-Side (Capital Owners)</span></div>
+                <div class="legend-item"><div class="legend-dot sell"></div><span data-i18n="finance.legend_sell">Sell-Side (Intermediaries)</span></div>
+                <div class="legend-item"><div class="legend-dot infra"></div><span data-i18n="finance.legend_infra">Infrastructure (FMIs)</span></div>
+                <div class="legend-item"><div class="legend-dot flow"></div><span data-i18n="finance.legend_flow">Transaction Flows</span></div>
             </div>
         </header>
 
-        <!-- Context -->
         <div class="context-banner">
             <div class="context-header">
-                <div class="eea-badge">EEA</div>
-                <h2>Why This Document Exists</h2>
+                <div class="eea-badge" data-i18n="finance.context_badge">EEA</div>
+                <h2 data-i18n="finance.context_title">Why This Document Exists</h2>
             </div>
-            <p>We often hear that Ethereum will become the infrastructure of the global economy. But to build that future, we need to understand how the current system actually works.</p>
-            <p>Too often, Web3 conversations skip over the real mechanics of global finance — the pipes that move $7 trillion in FX daily, settle $3.79 quadrillion in securities annually, and protect against counterparty failures that have taken down major banks.</p>
-            <p>This document is the EEA's contribution to closing that gap. If we want Ethereum to provide meaningful upgrades to financial infrastructure, we need to understand what we're improving — and why these systems were built in the first place.</p>
-            <div class="context-footer">The opportunity is real. So is the complexity.</div>
+            <p data-i18n="finance.context_p1">We often hear that Ethereum will become the infrastructure of the global economy. But to build that future, we need to understand how the current system actually works.</p>
+            <p data-i18n="finance.context_p2">Too often, Web3 conversations skip over the real mechanics of global finance — the pipes that move $7 trillion in FX daily, settle $3.79 quadrillion in securities annually, and protect against counterparty failures that have taken down major banks.</p>
+            <p data-i18n="finance.context_p3">This document is the EEA's contribution to closing that gap. If we want Ethereum to provide meaningful upgrades to financial infrastructure, we need to understand what we're improving — and why these systems were built in the first place.</p>
+            <div class="context-footer" data-i18n="finance.context_footer">The opportunity is real. So is the complexity.</div>
         </div>
 
-        <!-- Scale Banner -->
         <div class="scale-banner">
             <div class="scale-item">
                 <div class="scale-value">$7.5T</div>
-                <div class="scale-label">Daily FX volume</div>
+                <div class="scale-label" data-i18n="finance.scale_fx">Daily FX volume</div>
             </div>
             <div class="scale-item">
                 <div class="scale-value">$3.79Q</div>
-                <div class="scale-label">DTCC annual throughput</div>
+                <div class="scale-label" data-i18n="finance.scale_dtcc">DTCC annual throughput</div>
             </div>
             <div class="scale-item">
                 <div class="scale-value">€40T+</div>
-                <div class="scale-label">Euroclear assets under custody</div>
+                <div class="scale-label" data-i18n="finance.scale_euroclear">Euroclear assets under custody</div>
             </div>
             <div class="scale-item">
                 <div class="scale-value">$19.1T</div>
-                <div class="scale-label">CLS single-day record</div>
+                <div class="scale-label" data-i18n="finance.scale_cls">CLS single-day record</div>
             </div>
         </div>
 
-        <!-- Actors -->
         <div class="ecosystem-grid">
             <div class="actor-section buy-side">
                 <div class="section-header">
                     <div class="section-icon">↗</div>
                     <div>
-                        <div class="section-title">Buy-Side</div>
-                        <div class="section-subtitle">Where should we put money?</div>
+                        <div class="section-title" data-i18n="finance.buy_side_title">Buy-Side</div>
+                        <div class="section-subtitle" data-i18n="finance.buy_side_subtitle">Where should we put money?</div>
                     </div>
                 </div>
-                <p class="section-why">Owns capital and seeks returns. Makes allocation decisions. Pays for access to markets, liquidity, and execution.</p>
+                <p class="section-why" data-i18n="finance.buy_side_why">Owns capital and seeks returns. Makes allocation decisions. Pays for access to markets, liquidity, and execution.</p>
                 <div class="actor-list">
-                    <span class="actor-tag">Pension Funds</span>
-                    <span class="actor-tag">Insurers</span>
-                    <span class="actor-tag">Sovereign Wealth Funds</span>
-                    <span class="actor-tag">Mutual Funds / ETFs</span>
-                    <span class="actor-tag">Hedge Funds</span>
-                    <span class="actor-tag">Private Equity</span>
-                    <span class="actor-tag">Venture Capital</span>
-                    <span class="actor-tag">Corporate Treasuries</span>
+                    <span class="actor-tag" data-i18n="finance.actor_pension">Pension Funds</span>
+                    <span class="actor-tag" data-i18n="finance.actor_insurers">Insurers</span>
+                    <span class="actor-tag" data-i18n="finance.actor_swf">Sovereign Wealth Funds</span>
+                    <span class="actor-tag" data-i18n="finance.actor_mutual">Mutual Funds / ETFs</span>
+                    <span class="actor-tag" data-i18n="finance.actor_hedge">Hedge Funds</span>
+                    <span class="actor-tag" data-i18n="finance.actor_pe">Private Equity</span>
+                    <span class="actor-tag" data-i18n="finance.actor_vc">Venture Capital</span>
+                    <span class="actor-tag" data-i18n="finance.actor_treasury">Corporate Treasuries</span>
                 </div>
             </div>
 
@@ -757,27 +260,26 @@
                 <div class="section-header">
                     <div class="section-icon">⇄</div>
                     <div>
-                        <div class="section-title">Sell-Side</div>
-                        <div class="section-subtitle">How do we package and distribute risk?</div>
+                        <div class="section-title" data-i18n="finance.sell_side_title">Sell-Side</div>
+                        <div class="section-subtitle" data-i18n="finance.sell_side_subtitle">How do we package and distribute risk?</div>
                     </div>
                 </div>
-                <p class="section-why">Manufactures liquidity and distributes products. Earns fees for providing market access, execution, and balance sheet.</p>
+                <p class="section-why" data-i18n="finance.sell_side_why">Manufactures liquidity and distributes products. Earns fees for providing market access, execution, and balance sheet.</p>
                 <div class="actor-list">
-                    <span class="actor-tag">Investment Banks</span>
-                    <span class="actor-tag">Broker-Dealers</span>
-                    <span class="actor-tag">Commercial Banks</span>
-                    <span class="actor-tag">Market Makers</span>
-                    <span class="actor-tag">Trading Firms</span>
-                    <span class="actor-tag">Custodian Banks</span>
-                    <span class="actor-tag">Prime Brokers</span>
+                    <span class="actor-tag" data-i18n="finance.actor_ibanks">Investment Banks</span>
+                    <span class="actor-tag" data-i18n="finance.actor_brokers">Broker-Dealers</span>
+                    <span class="actor-tag" data-i18n="finance.actor_commercial">Commercial Banks</span>
+                    <span class="actor-tag" data-i18n="finance.actor_mm">Market Makers</span>
+                    <span class="actor-tag" data-i18n="finance.actor_trading">Trading Firms</span>
+                    <span class="actor-tag" data-i18n="finance.actor_custodian">Custodian Banks</span>
+                    <span class="actor-tag" data-i18n="finance.actor_prime">Prime Brokers</span>
                 </div>
             </div>
         </div>
 
-        <!-- Infrastructure -->
         <section class="infrastructure">
             <div class="infra-header">
-                <h2>Infrastructure — The Pipes</h2>
+                <h2 data-i18n="finance.infra_title">Infrastructure — The Pipes</h2>
             </div>
             <div class="infra-grid">
                 
@@ -785,62 +287,38 @@
                 <div class="infra-card">
                     <div class="infra-left">
                         <div class="infra-card-header">
-                            <h3>Central Bank Rails</h3>
-                            <span class="infra-abbrev">RTGS</span>
+                            <h3 data-i18n="finance.rtgs_title">Central Bank Rails</h3>
+                            <span class="infra-abbrev" data-i18n="finance.rtgs_abbrev">RTGS</span>
                         </div>
-                        <div class="full-name">Real-Time Gross Settlement</div>
+                        <div class="full-name" data-i18n="finance.rtgs_full">Real-Time Gross Settlement</div>
                         
                         <div class="problem-box">
-                            <div class="problem-label">⚠ The Problem</div>
-                            <div class="problem-text">
+                            <div class="problem-label" data-i18n="finance.rtgs_problem_label">⚠ The Problem</div>
+                            <div class="problem-text" data-i18n="finance.rtgs_problem">
                                 When banks transfer money to each other, who guarantees the payment is real? A bank could promise $1B, receive goods, then fail before actually paying.
                             </div>
                             <div class="example-box">
-                                <div class="example-label">Real-World Failure</div>
+                                <div class="example-label" data-i18n="finance.rtgs_example_label">Real-World Failure</div>
                                 <div class="example-text">
-                                    <strong>Continental Illinois, 1984:</strong> When this major US bank failed, other banks had billions in unsettled interbank payments at risk. The Fed had to intervene with $4.5B to prevent a chain reaction.
+                                    <strong data-i18n="finance.rtgs_example">Continental Illinois, 1984:</strong> <span data-i18n="finance.rtgs_example_text">When this major US bank failed, other banks had billions in unsettled interbank payments at risk. The Fed had to intervene with $4.5B to prevent a chain reaction.</span>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="solution-box">
-                            <div class="solution-label">✓ How RTGS Solves It</div>
-                            <div class="solution-text">
+                            <div class="solution-label" data-i18n="finance.rtgs_solution_label">✓ How RTGS Solves It</div>
+                            <div class="solution-text" data-i18n="finance.rtgs_solution">
                                 Payments settle in central bank money — the only money with zero counterparty risk. Each transfer is final and irrevocable within seconds. Banks can only send what they have in their central bank account.
                             </div>
                         </div>
                     </div>
                     <div class="infra-right">
-                        <div class="operators-label">Key Operators</div>
+                        <div class="operators-label" data-i18n="finance.rtgs_operators">Key Operators</div>
                         <div class="infra-examples">
-                            <div class="example-row">
-                                <span class="example-name">Fedwire</span>
-                                <div class="example-stats">
-                                    <span class="example-region">US</span>
-                                    <span class="example-stat">~$5T/day</span>
-                                </div>
-                            </div>
-                            <div class="example-row">
-                                <span class="example-name">TARGET2</span>
-                                <div class="example-stats">
-                                    <span class="example-region">Eurozone</span>
-                                    <span class="example-stat">~€2T/day</span>
-                                </div>
-                            </div>
-                            <div class="example-row">
-                                <span class="example-name">CHAPS</span>
-                                <div class="example-stats">
-                                    <span class="example-region">UK</span>
-                                    <span class="example-stat">~£400B/day</span>
-                                </div>
-                            </div>
-                            <div class="example-row">
-                                <span class="example-name">BOJ-NET</span>
-                                <div class="example-stats">
-                                    <span class="example-region">Japan</span>
-                                    <span class="example-stat">~¥400T/day</span>
-                                </div>
-                            </div>
+                            <div class="example-row"><span class="example-name">Fedwire</span><div class="example-stats"><span class="example-region">US</span><span class="example-stat">~$5T/day</span></div></div>
+                            <div class="example-row"><span class="example-name">TARGET2</span><div class="example-stats"><span class="example-region">Eurozone</span><span class="example-stat">~€2T/day</span></div></div>
+                            <div class="example-row"><span class="example-name">CHAPS</span><div class="example-stats"><span class="example-region">UK</span><span class="example-stat">~£400B/day</span></div></div>
+                            <div class="example-row"><span class="example-name">BOJ-NET</span><div class="example-stats"><span class="example-region">Japan</span><span class="example-stat">~¥400T/day</span></div></div>
                         </div>
                     </div>
                 </div>
@@ -849,126 +327,38 @@
                 <div class="infra-card">
                     <div class="infra-left">
                         <div class="infra-card-header">
-                            <h3>Card Networks</h3>
-                            <span class="infra-abbrev">PSP</span>
+                            <h3 data-i18n="finance.card_title">Card Networks</h3>
+                            <span class="infra-abbrev" data-i18n="finance.card_abbrev">PSP</span>
                         </div>
-                        <div class="full-name">Payment Service Providers / Networks</div>
+                        <div class="full-name" data-i18n="finance.card_full">Payment Service Providers / Networks</div>
                         
                         <div class="problem-box">
-                            <div class="problem-label">⚠ The Problem</div>
-                            <div class="problem-text">
+                            <div class="problem-label" data-i18n="finance.rtgs_problem_label">⚠ The Problem</div>
+                            <div class="problem-text" data-i18n="finance.card_problem">
                                 A merchant in Paris wants to accept payment from a tourist's US bank. They've never met, don't trust each other, and need instant authorization. Who guarantees the merchant gets paid? Who protects the consumer from fraud?
                             </div>
                             <div class="example-box">
-                                <div class="example-label">Why This Matters</div>
+                                <div class="example-label" data-i18n="finance.card_example_label">Why This Matters</div>
                                 <div class="example-text">
-                                    <strong>Without networks:</strong> Every merchant would need bilateral agreements with every bank worldwide. Fraud liability would be unclear. Authorization would take days, not seconds.
+                                    <strong data-i18n="finance.card_example">Without networks:</strong> <span data-i18n="finance.card_example_text">Every merchant would need bilateral agreements with every bank worldwide. Fraud liability would be unclear. Authorization would take days, not seconds.</span>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="solution-box">
-                            <div class="solution-label">✓ How Networks Solve It</div>
-                            <div class="solution-text">
+                            <div class="solution-label" data-i18n="finance.card_solution_label">✓ How Networks Solve It</div>
+                            <div class="solution-text" data-i18n="finance.card_solution">
                                 Networks provide universal acceptance (one integration = millions of merchants), instant authorization, fraud protection with chargeback rights, and guaranteed merchant payment. They net millions of transactions and settle once daily.
                             </div>
                         </div>
                     </div>
                     <div class="infra-right">
-                        <div class="operators-label">Key Operators</div>
+                        <div class="operators-label" data-i18n="finance.rtgs_operators">Key Operators</div>
                         <div class="infra-examples">
-                            <div class="example-row">
-                                <span class="example-name">Visa</span>
-                                <div class="example-stats">
-                                    <span class="example-region">Global</span>
-                                    <span class="example-stat">~$15T/yr</span>
-                                </div>
-                            </div>
-                            <div class="example-row">
-                                <span class="example-name">Mastercard</span>
-                                <div class="example-stats">
-                                    <span class="example-region">Global</span>
-                                    <span class="example-stat">~$9T/yr</span>
-                                </div>
-                            </div>
-                            <div class="example-row">
-                                <span class="example-name">UnionPay</span>
-                                <div class="example-stats">
-                                    <span class="example-region">China+</span>
-                                    <span class="example-stat">~$18T/yr</span>
-                                </div>
-                            </div>
-                            <div class="example-row">
-                                <span class="example-name">Amex</span>
-                                <div class="example-stats">
-                                    <span class="example-region">Closed-loop</span>
-                                    <span class="example-stat">~$1.5T/yr</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Exchanges -->
-                <div class="infra-card">
-                    <div class="infra-left">
-                        <div class="infra-card-header">
-                            <h3>Exchanges</h3>
-                            <span class="infra-abbrev">Trading Venues</span>
-                        </div>
-                        <div class="full-name">Stock & Derivatives Exchanges</div>
-                        
-                        <div class="problem-box">
-                            <div class="problem-label">⚠ The Problem</div>
-                            <div class="problem-text">
-                                You want to sell 10,000 shares of Apple. Someone in Tokyo wants to buy. How do you find each other? How do you know you're getting a fair price and not being front-run?
-                            </div>
-                            <div class="example-box">
-                                <div class="example-label">Pre-Exchange World</div>
-                                <div class="example-text">
-                                    <strong>Before 1792:</strong> Stock trading happened in coffee houses. Prices varied wildly between dealers. Insider trading was rampant. The Buttonwood Agreement created the NYSE to establish fair, transparent pricing.
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="solution-box">
-                            <div class="solution-label">✓ How Exchanges Solve It</div>
-                            <div class="solution-text">
-                                Central order books show all bids/offers. Price-time priority ensures fairness. Surveillance detects manipulation. Everyone sees the same price at the same time. Liquidity concentrates, reducing spreads.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="infra-right">
-                        <div class="operators-label">Key Operators</div>
-                        <div class="infra-examples">
-                            <div class="example-row">
-                                <span class="example-name">NYSE</span>
-                                <div class="example-stats">
-                                    <span class="example-region">Equities</span>
-                                    <span class="example-stat">$28T mkt cap</span>
-                                </div>
-                            </div>
-                            <div class="example-row">
-                                <span class="example-name">Nasdaq</span>
-                                <div class="example-stats">
-                                    <span class="example-region">Equities</span>
-                                    <span class="example-stat">$25T mkt cap</span>
-                                </div>
-                            </div>
-                            <div class="example-row">
-                                <span class="example-name">CME Group</span>
-                                <div class="example-stats">
-                                    <span class="example-region">Derivatives</span>
-                                    <span class="example-stat">~$1Q notional/yr</span>
-                                </div>
-                            </div>
-                            <div class="example-row">
-                                <span class="example-name">LSE / Euronext</span>
-                                <div class="example-stats">
-                                    <span class="example-region">Europe</span>
-                                    <span class="example-stat">€7T+ combined</span>
-                                </div>
-                            </div>
+                            <div class="example-row"><span class="example-name">Visa</span><div class="example-stats"><span class="example-region">Global</span><span class="example-stat">~$15T/yr</span></div></div>
+                            <div class="example-row"><span class="example-name">Mastercard</span><div class="example-stats"><span class="example-region">Global</span><span class="example-stat">~$9T/yr</span></div></div>
+                            <div class="example-row"><span class="example-name">UnionPay</span><div class="example-stats"><span class="example-region">China+</span><span class="example-stat">~$18T/yr</span></div></div>
+                            <div class="example-row"><span class="example-name">Amex</span><div class="example-stats"><span class="example-region">Closed-loop</span><span class="example-stat">~$1.5T/yr</span></div></div>
                         </div>
                     </div>
                 </div>
@@ -977,62 +367,38 @@
                 <div class="infra-card">
                     <div class="infra-left">
                         <div class="infra-card-header">
-                            <h3>Central Counterparties</h3>
-                            <span class="infra-abbrev">CCP</span>
+                            <h3 data-i18n="finance.ccp_title">Central Counterparties</h3>
+                            <span class="infra-abbrev" data-i18n="finance.ccp_abbrev">CCP</span>
                         </div>
-                        <div class="full-name">Clearing Houses</div>
+                        <div class="full-name" data-i18n="finance.ccp_full">Clearing Houses</div>
                         
                         <div class="problem-box">
-                            <div class="problem-label">⚠ The Problem</div>
-                            <div class="problem-text">
+                            <div class="problem-label" data-i18n="finance.rtgs_problem_label">⚠ The Problem</div>
+                            <div class="problem-text" data-i18n="finance.ccp_problem">
                                 You agree to buy $100M in bonds from Bank X, settling in 2 days. Overnight, Bank X fails. You've already hedged your position. Now you're exposed AND need to find a new seller — possibly at a worse price.
                             </div>
                             <div class="example-box">
-                                <div class="example-label">Real-World Failure</div>
+                                <div class="example-label" data-i18n="finance.ccp_example_label">Real-World Failure</div>
                                 <div class="example-text">
-                                    <strong>Lehman Brothers, Sept 2008:</strong> $35T in derivatives, $600B+ in outstanding trades frozen overnight. Counterparties globally didn't know if trades would settle. CCP-cleared trades settled cleanly; bilateral trades took <em>years</em> to unwind in court.
+                                    <strong data-i18n="finance.ccp_example">Lehman Brothers, Sept 2008:</strong> <span data-i18n="finance.ccp_example_text">$35T in derivatives, $600B+ in outstanding trades frozen overnight. Counterparties globally didn't know if trades would settle. CCP-cleared trades settled cleanly; bilateral trades took years to unwind in court.</span>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="solution-box">
-                            <div class="solution-label">✓ How CCPs Solve It</div>
-                            <div class="solution-text">
+                            <div class="solution-label" data-i18n="finance.ccp_solution_label">✓ How CCPs Solve It</div>
+                            <div class="solution-text" data-i18n="finance.ccp_solution">
                                 CCP becomes buyer to every seller, seller to every buyer. Collects margin daily (if you drop 5%, you post cash that day). Nets 1000 trades into 1 position. Maintains default fund from all members. If a member fails, CCP auctions their portfolio.
                             </div>
                         </div>
                     </div>
                     <div class="infra-right">
-                        <div class="operators-label">Key Operators</div>
+                        <div class="operators-label" data-i18n="finance.rtgs_operators">Key Operators</div>
                         <div class="infra-examples">
-                            <div class="example-row">
-                                <span class="example-name">LCH</span>
-                                <div class="example-stats">
-                                    <span class="example-region">Multi-asset</span>
-                                    <span class="example-stat">$2.5Q notional</span>
-                                </div>
-                            </div>
-                            <div class="example-row">
-                                <span class="example-name">CME Clearing</span>
-                                <div class="example-stats">
-                                    <span class="example-region">Derivatives</span>
-                                    <span class="example-stat">~3B contracts/yr</span>
-                                </div>
-                            </div>
-                            <div class="example-row">
-                                <span class="example-name">ICE Clear</span>
-                                <div class="example-stats">
-                                    <span class="example-region">Energy/CDS</span>
-                                    <span class="example-stat">$35T+ notional</span>
-                                </div>
-                            </div>
-                            <div class="example-row">
-                                <span class="example-name">Eurex Clearing</span>
-                                <div class="example-stats">
-                                    <span class="example-region">Europe</span>
-                                    <span class="example-stat">€12T+ notional</span>
-                                </div>
-                            </div>
+                            <div class="example-row"><span class="example-name">LCH</span><div class="example-stats"><span class="example-region">Multi-asset</span><span class="example-stat">$2.5Q notional</span></div></div>
+                            <div class="example-row"><span class="example-name">CME Clearing</span><div class="example-stats"><span class="example-region">Derivatives</span><span class="example-stat">~3B contracts/yr</span></div></div>
+                            <div class="example-row"><span class="example-name">ICE Clear</span><div class="example-stats"><span class="example-region">Energy/CDS</span><span class="example-stat">$35T+ notional</span></div></div>
+                            <div class="example-row"><span class="example-name">Eurex Clearing</span><div class="example-stats"><span class="example-region">Europe</span><span class="example-stat">€12T+ notional</span></div></div>
                         </div>
                     </div>
                 </div>
@@ -1041,62 +407,38 @@
                 <div class="infra-card">
                     <div class="infra-left">
                         <div class="infra-card-header">
-                            <h3>Securities Depositories</h3>
-                            <span class="infra-abbrev">CSD / ICSD</span>
+                            <h3 data-i18n="finance.csd_title">Securities Depositories</h3>
+                            <span class="infra-abbrev" data-i18n="finance.csd_abbrev">CSD / ICSD</span>
                         </div>
-                        <div class="full-name">Central Securities Depository / International CSD</div>
+                        <div class="full-name" data-i18n="finance.csd_full">Central Securities Depository / International CSD</div>
                         
                         <div class="problem-box">
-                            <div class="problem-label">⚠ The Problem</div>
-                            <div class="problem-text">
+                            <div class="problem-label" data-i18n="finance.rtgs_problem_label">⚠ The Problem</div>
+                            <div class="problem-text" data-i18n="finance.csd_problem">
                                 After clearing, the asset must actually move. But what if you send $100M and never receive the shares? Or send shares and never get paid? With millions of trades daily, how do you track who owns what?
                             </div>
                             <div class="example-box">
-                                <div class="example-label">The Paper Crisis</div>
+                                <div class="example-label" data-i18n="finance.csd_example_label">The Paper Crisis</div>
                                 <div class="example-text">
-                                    <strong>Wall Street, 1968:</strong> Trading volume overwhelmed back offices. Physical stock certificates were lost, stolen, or misdelivered. NYSE had to close on Wednesdays for months. $400M in securities simply "disappeared."
+                                    <strong data-i18n="finance.csd_example">Wall Street, 1968:</strong> <span data-i18n="finance.csd_example_text">Trading volume overwhelmed back offices. Physical stock certificates were lost, stolen, or misdelivered. NYSE had to close on Wednesdays for months. $400M in securities simply "disappeared."</span>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="solution-box">
-                            <div class="solution-label">✓ How CSDs Solve It</div>
-                            <div class="solution-text">
+                            <div class="solution-label" data-i18n="finance.csd_solution_label">✓ How CSDs Solve It</div>
+                            <div class="solution-text" data-i18n="finance.csd_solution">
                                 Securities exist as electronic book entries, not paper. DvP (Delivery versus Payment) ensures atomic swap — you only get shares if payment clears, and vice versa. Single source of truth for ownership. Corporate actions processed automatically.
                             </div>
                         </div>
                     </div>
                     <div class="infra-right">
-                        <div class="operators-label">Key Operators</div>
+                        <div class="operators-label" data-i18n="finance.rtgs_operators">Key Operators</div>
                         <div class="infra-examples">
-                            <div class="example-row">
-                                <span class="example-name">DTCC (DTC/NSCC)</span>
-                                <div class="example-stats">
-                                    <span class="example-region">US</span>
-                                    <span class="example-stat">$3.79Q/yr</span>
-                                </div>
-                            </div>
-                            <div class="example-row">
-                                <span class="example-name">Euroclear</span>
-                                <div class="example-stats">
-                                    <span class="example-region">Int'l</span>
-                                    <span class="example-stat">€40T AUC</span>
-                                </div>
-                            </div>
-                            <div class="example-row">
-                                <span class="example-name">Clearstream</span>
-                                <div class="example-stats">
-                                    <span class="example-region">Int'l bonds</span>
-                                    <span class="example-stat">€16T AUC</span>
-                                </div>
-                            </div>
-                            <div class="example-row">
-                                <span class="example-name">JASDEC</span>
-                                <div class="example-stats">
-                                    <span class="example-region">Japan</span>
-                                    <span class="example-stat">¥700T+ AUC</span>
-                                </div>
-                            </div>
+                            <div class="example-row"><span class="example-name">DTCC (DTC/NSCC)</span><div class="example-stats"><span class="example-region">US</span><span class="example-stat">$3.79Q/yr</span></div></div>
+                            <div class="example-row"><span class="example-name">Euroclear</span><div class="example-stats"><span class="example-region">Int'l</span><span class="example-stat">€40T AUC</span></div></div>
+                            <div class="example-row"><span class="example-name">Clearstream</span><div class="example-stats"><span class="example-region">Int'l bonds</span><span class="example-stat">€16T AUC</span></div></div>
+                            <div class="example-row"><span class="example-name">JASDEC</span><div class="example-stats"><span class="example-region">Japan</span><span class="example-stat">¥700T+ AUC</span></div></div>
                         </div>
                     </div>
                 </div>
@@ -1105,207 +447,108 @@
                 <div class="infra-card">
                     <div class="infra-left">
                         <div class="infra-card-header">
-                            <h3>FX Settlement</h3>
-                            <span class="infra-abbrev">CLS / PvP</span>
+                            <h3 data-i18n="finance.fx_title">FX Settlement</h3>
+                            <span class="infra-abbrev" data-i18n="finance.fx_abbrev">CLS / PvP</span>
                         </div>
-                        <div class="full-name">Continuous Linked Settlement / Payment vs Payment</div>
+                        <div class="full-name" data-i18n="finance.fx_full">Continuous Linked Settlement / Payment vs Payment</div>
                         
                         <div class="problem-box">
-                            <div class="problem-label">⚠ The Problem</div>
-                            <div class="problem-text">
+                            <div class="problem-label" data-i18n="finance.rtgs_problem_label">⚠ The Problem</div>
+                            <div class="problem-text" data-i18n="finance.fx_problem">
                                 In FX, you're exchanging two currencies. You send €100M to a German bank at 9am Frankfurt time. They should send you $110M — but their US correspondent bank operates in New York, 6 hours behind. If they fail before NY opens, you've lost €100M.
                             </div>
                             <div class="example-box">
-                                <div class="example-label">The Defining Failure</div>
+                                <div class="example-label" data-i18n="finance.fx_example_label">The Defining Failure</div>
                                 <div class="example-text">
-                                    <strong>Herstatt Bank, June 1974:</strong> German regulators closed Herstatt at 3:30pm Frankfurt (10:30am NY). Counterparties had already paid Deutschmarks but never received dollars. $620M frozen. This "Herstatt Risk" shaped FX infrastructure for 50 years.
+                                    <strong data-i18n="finance.fx_example">Herstatt Bank, June 1974:</strong> <span data-i18n="finance.fx_example_text">German regulators closed Herstatt at 3:30pm Frankfurt (10:30am NY). Counterparties had already paid Deutschmarks but never received dollars. $620M frozen. This "Herstatt Risk" shaped FX infrastructure for 50 years.</span>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="solution-box">
-                            <div class="solution-label">✓ How CLS Solves It</div>
-                            <div class="solution-text">
+                            <div class="solution-label" data-i18n="finance.fx_solution_label">✓ How CLS Solves It</div>
+                            <div class="solution-text" data-i18n="finance.fx_solution">
                                 PvP = both legs settle simultaneously or neither does. CLS holds both payments in escrow and releases only when both parties have funded. Eliminates principal risk entirely. Operates in a 5-hour window when all major markets overlap.
                             </div>
                         </div>
                     </div>
                     <div class="infra-right">
-                        <div class="operators-label">Key Operators</div>
+                        <div class="operators-label" data-i18n="finance.rtgs_operators">Key Operators</div>
                         <div class="infra-examples">
-                            <div class="example-row">
-                                <span class="example-name">CLS</span>
-                                <div class="example-stats">
-                                    <span class="example-region">18 currencies</span>
-                                    <span class="example-stat">>$7T/day avg</span>
-                                </div>
-                            </div>
-                            <div class="example-row">
-                                <span class="example-name">Peak Day</span>
-                                <div class="example-stats">
-                                    <span class="example-region">Jun 2024</span>
-                                    <span class="example-stat">$19.1T record</span>
-                                </div>
-                            </div>
-                            <div class="example-row">
-                                <span class="example-name">Settlement Members</span>
-                                <div class="example-stats">
-                                    <span class="example-region">Global banks</span>
-                                    <span class="example-stat">70+ direct</span>
-                                </div>
-                            </div>
-                            <div class="example-row">
-                                <span class="example-name">Risk Eliminated</span>
-                                <div class="example-stats">
-                                    <span class="example-region">Principal</span>
-                                    <span class="example-stat">~$7T/day</span>
-                                </div>
-                            </div>
+                            <div class="example-row"><span class="example-name">CLS</span><div class="example-stats"><span class="example-region">18 currencies</span><span class="example-stat">>$7T/day avg</span></div></div>
+                            <div class="example-row"><span class="example-name">Peak Day</span><div class="example-stats"><span class="example-region">Jun 2024</span><span class="example-stat">$19.1T record</span></div></div>
+                            <div class="example-row"><span class="example-name">Settlement Members</span><div class="example-stats"><span class="example-region">Global banks</span><span class="example-stat">70+ direct</span></div></div>
+                            <div class="example-row"><span class="example-name">Risk Eliminated</span><div class="example-stats"><span class="example-region">Principal</span><span class="example-stat">~$7T/day</span></div></div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
         <!-- Transaction Flows -->
         <section class="flows">
             <div class="flow-header">
-                <h2>How Money Moves</h2>
+                <h2 data-i18n="finance.flows_title">How Money Moves</h2>
             </div>
             <div class="flow-cards">
                 <div class="flow-card">
-                    <h3>💳 Card Purchase</h3>
-                    <div class="flow-scale">~700M transactions/day globally</div>
+                    <h3 data-i18n="finance.flow_card_title">💳 Card Purchase</h3>
+                    <div class="flow-scale" data-i18n="finance.flow_card_scale">~700M transactions/day globally</div>
                     <div class="flow-steps">
-                        <div class="flow-step">
-                            <span class="step-num">1</span>
-                            <span class="step-text">Tap card → <span class="step-actor">Network</span> routes to issuer</span>
-                        </div>
-                        <div class="flow-step">
-                            <span class="step-num">2</span>
-                            <span class="step-text">Issuer approves (fraud + funds + credit)</span>
-                        </div>
-                        <div class="flow-step">
-                            <span class="step-num">3</span>
-                            <span class="step-text">End of day: obligations netted</span>
-                        </div>
-                        <div class="flow-step">
-                            <span class="step-num">4</span>
-                            <span class="step-text"><span class="step-actor">RTGS</span> settles interbank final</span>
-                        </div>
+                        <div class="flow-step"><span class="step-num">1</span><span class="step-text"><span data-i18n="finance.flow_card_1">Tap card →</span> <span class="step-actor" data-i18n="finance.flow_card_1_actor">Network</span> <span data-i18n="finance.flow_card_1_text">routes to issuer</span></span></div>
+                        <div class="flow-step"><span class="step-num">2</span><span class="step-text" data-i18n="finance.flow_card_2">Issuer approves (fraud + funds + credit)</span></div>
+                        <div class="flow-step"><span class="step-num">3</span><span class="step-text" data-i18n="finance.flow_card_3">End of day: obligations netted</span></div>
+                        <div class="flow-step"><span class="step-num">4</span><span class="step-text"><span class="step-actor" data-i18n="finance.flow_card_4_actor">RTGS</span> <span data-i18n="finance.flow_card_4">settles interbank final</span></span></div>
                     </div>
                 </div>
 
                 <div class="flow-card">
-                    <h3>📈 Stock Trade</h3>
-                    <div class="flow-scale">~$500B/day on US equities alone</div>
+                    <h3 data-i18n="finance.flow_stock_title">📈 Stock Trade</h3>
+                    <div class="flow-scale" data-i18n="finance.flow_stock_scale">~$500B/day on US equities alone</div>
                     <div class="flow-steps">
-                        <div class="flow-step">
-                            <span class="step-num">1</span>
-                            <span class="step-text">Order placed → <span class="step-actor">Exchange</span> matches</span>
-                        </div>
-                        <div class="flow-step">
-                            <span class="step-num">2</span>
-                            <span class="step-text"><span class="step-actor">CCP</span> becomes counterparty to both</span>
-                        </div>
-                        <div class="flow-step">
-                            <span class="step-num">3</span>
-                            <span class="step-text">CCP nets exposures + collects margin</span>
-                        </div>
-                        <div class="flow-step">
-                            <span class="step-num">4</span>
-                            <span class="step-text"><span class="step-actor">CSD</span> settles DvP (T+1 in US)</span>
-                        </div>
+                        <div class="flow-step"><span class="step-num">1</span><span class="step-text"><span data-i18n="finance.flow_stock_1">Order placed →</span> <span class="step-actor" data-i18n="finance.flow_stock_1_actor">Exchange</span> <span data-i18n="finance.flow_stock_1_text">matches</span></span></div>
+                        <div class="flow-step"><span class="step-num">2</span><span class="step-text"><span class="step-actor" data-i18n="finance.flow_stock_2_actor">CCP</span> <span data-i18n="finance.flow_stock_2">becomes counterparty to both</span></span></div>
+                        <div class="flow-step"><span class="step-num">3</span><span class="step-text" data-i18n="finance.flow_stock_3">CCP nets exposures + collects margin</span></div>
+                        <div class="flow-step"><span class="step-num">4</span><span class="step-text"><span class="step-actor" data-i18n="finance.flow_stock_4_actor">CSD</span> <span data-i18n="finance.flow_stock_4">settles DvP (T+1 in US)</span></span></div>
                     </div>
                 </div>
 
                 <div class="flow-card">
-                    <h3>💱 FX Trade</h3>
-                    <div class="flow-scale">$7.5T/day — largest market on Earth</div>
+                    <h3 data-i18n="finance.flow_fx_title">💱 FX Trade</h3>
+                    <div class="flow-scale" data-i18n="finance.flow_fx_scale">$7.5T/day — largest market on Earth</div>
                     <div class="flow-steps">
-                        <div class="flow-step">
-                            <span class="step-num">1</span>
-                            <span class="step-text">Banks agree trade (spot/forward/swap)</span>
-                        </div>
-                        <div class="flow-step">
-                            <span class="step-num">2</span>
-                            <span class="step-text">Instructions sent to ops networks</span>
-                        </div>
-                        <div class="flow-step">
-                            <span class="step-num">3</span>
-                            <span class="step-text"><span class="step-actor">CLS</span> settles both legs (PvP)</span>
-                        </div>
-                        <div class="flow-step">
-                            <span class="step-num">4</span>
-                            <span class="step-text">Principal risk eliminated</span>
-                        </div>
+                        <div class="flow-step"><span class="step-num">1</span><span class="step-text" data-i18n="finance.flow_fx_1">Banks agree trade (spot/forward/swap)</span></div>
+                        <div class="flow-step"><span class="step-num">2</span><span class="step-text" data-i18n="finance.flow_fx_2">Instructions sent to ops networks</span></div>
+                        <div class="flow-step"><span class="step-num">3</span><span class="step-text"><span class="step-actor" data-i18n="finance.flow_fx_3_actor">CLS</span> <span data-i18n="finance.flow_fx_3">settles both legs (PvP)</span></span></div>
+                        <div class="flow-step"><span class="step-num">4</span><span class="step-text" data-i18n="finance.flow_fx_4">Principal risk eliminated</span></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Glossary -->
         <div class="glossary">
-            <h3>Key Abbreviations</h3>
+            <h3 data-i18n="finance.glossary_title">Key Abbreviations</h3>
             <div class="glossary-grid">
-                <div class="glossary-item">
-                    <span class="glossary-term">RTGS</span>
-                    <span class="glossary-def">Real-Time Gross Settlement</span>
-                </div>
-                <div class="glossary-item">
-                    <span class="glossary-term">CCP</span>
-                    <span class="glossary-def">Central Counterparty (clearing house)</span>
-                </div>
-                <div class="glossary-item">
-                    <span class="glossary-term">CSD</span>
-                    <span class="glossary-def">Central Securities Depository</span>
-                </div>
-                <div class="glossary-item">
-                    <span class="glossary-term">ICSD</span>
-                    <span class="glossary-def">International CSD (cross-border)</span>
-                </div>
-                <div class="glossary-item">
-                    <span class="glossary-term">DvP</span>
-                    <span class="glossary-def">Delivery versus Payment</span>
-                </div>
-                <div class="glossary-item">
-                    <span class="glossary-term">PvP</span>
-                    <span class="glossary-def">Payment versus Payment (FX)</span>
-                </div>
-                <div class="glossary-item">
-                    <span class="glossary-term">FMI</span>
-                    <span class="glossary-def">Financial Market Infrastructure</span>
-                </div>
-                <div class="glossary-item">
-                    <span class="glossary-term">AUC</span>
-                    <span class="glossary-def">Assets Under Custody</span>
-                </div>
-                <div class="glossary-item">
-                    <span class="glossary-term">T+1</span>
-                    <span class="glossary-def">Settlement one day after trade</span>
-                </div>
-                <div class="glossary-item">
-                    <span class="glossary-term">DTCC</span>
-                    <span class="glossary-def">Depository Trust & Clearing Corp.</span>
-                </div>
-                <div class="glossary-item">
-                    <span class="glossary-term">CLS</span>
-                    <span class="glossary-def">Continuous Linked Settlement</span>
-                </div>
-                <div class="glossary-item">
-                    <span class="glossary-term">PSP</span>
-                    <span class="glossary-def">Payment Service Provider</span>
-                </div>
+                <div class="glossary-item"><span class="glossary-term">RTGS</span><span class="glossary-def">Real-Time Gross Settlement</span></div>
+                <div class="glossary-item"><span class="glossary-term">CCP</span><span class="glossary-def">Central Counterparty (clearing house)</span></div>
+                <div class="glossary-item"><span class="glossary-term">CSD</span><span class="glossary-def">Central Securities Depository</span></div>
+                <div class="glossary-item"><span class="glossary-term">ICSD</span><span class="glossary-def">International CSD (cross-border)</span></div>
+                <div class="glossary-item"><span class="glossary-term">DvP</span><span class="glossary-def">Delivery versus Payment</span></div>
+                <div class="glossary-item"><span class="glossary-term">PvP</span><span class="glossary-def">Payment versus Payment (FX)</span></div>
+                <div class="glossary-item"><span class="glossary-term">FMI</span><span class="glossary-def">Financial Market Infrastructure</span></div>
+                <div class="glossary-item"><span class="glossary-term">AUC</span><span class="glossary-def">Assets Under Custody</span></div>
+                <div class="glossary-item"><span class="glossary-term">T+1</span><span class="glossary-def">Settlement one day after trade</span></div>
+                <div class="glossary-item"><span class="glossary-term">DTCC</span><span class="glossary-def">Depository Trust & Clearing Corp.</span></div>
+                <div class="glossary-item"><span class="glossary-term">CLS</span><span class="glossary-def">Continuous Linked Settlement</span></div>
+                <div class="glossary-item"><span class="glossary-term">PSP</span><span class="glossary-def">Payment Service Provider</span></div>
             </div>
         </div>
 
-        <!-- Key Insight -->
         <div class="insight">
-            <h3>Where Blockchain Fits</h3>
+            <h3 data-i18n="finance.insight_title">Where Blockchain Fits</h3>
             <div class="insight-grid">
                 <div class="insight-col">
-                    <h4>✓ Addressable Opportunities</h4>
+                    <h4 data-i18n="finance.insight_easy">✓ Addressable Opportunities</h4>
                     <ul>
                         <li>Cross-border payments (speed, cost, 24/7)</li>
                         <li>Atomic settlement (programmable DvP)</li>
@@ -1315,7 +558,7 @@
                     </ul>
                 </div>
                 <div class="insight-col hard">
-                    <h4>✗ Hard to Displace</h4>
+                    <h4 data-i18n="finance.insight_hard">✗ Hard to Displace</h4>
                     <ul>
                         <li>Central bank finality (legal tender status)</li>
                         <li>CCP risk mutualization at trillion-dollar scale</li>
@@ -1333,5 +576,6 @@
             <span style="color: var(--text-muted);">Data: DTCC 2024, Euroclear 2024, CLS Group 2024, BIS Triennial Survey</span>
         </footer>
     </div>
+    <script src="i18n.js"></script>
 </body>
 </html>

@@ -35,6 +35,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 1rem;
         }
 
         .logo {
@@ -64,6 +65,12 @@
 
         .logo-text span {
             color: #627eea;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
         }
 
         /* Tab Navigation */
@@ -98,6 +105,43 @@
             color: #fff;
         }
 
+        /* Language Switcher */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(255,255,255,0.05);
+            padding: 4px;
+            border-radius: 8px;
+        }
+
+        .lang-btn {
+            padding: 6px 12px;
+            background: transparent;
+            border: none;
+            color: #8a8a9a;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .lang-btn.active {
+            background: rgba(98, 126, 234, 0.3);
+            color: #fff;
+        }
+
+        .lang-btn .flag {
+            margin-right: 4px;
+        }
+
         /* Content Area */
         .content-frame {
             width: 100%;
@@ -106,26 +150,49 @@
         }
 
         /* Mobile */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .header {
-                padding: 1rem;
+                padding: 0.75rem 1rem;
             }
 
             .header-content {
-                flex-direction: column;
-                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .header-right {
+                width: 100%;
+                justify-content: space-between;
             }
 
             .tab-nav {
-                width: 100%;
+                flex: 1;
                 overflow-x: auto;
                 justify-content: flex-start;
             }
 
             .tab-btn {
-                padding: 8px 16px;
-                font-size: 0.85rem;
+                padding: 8px 12px;
+                font-size: 0.8rem;
                 white-space: nowrap;
+            }
+
+            .lang-switcher {
+                flex-shrink: 0;
+            }
+
+            .lang-btn {
+                padding: 6px 8px;
+                font-size: 0.8rem;
+            }
+
+            .lang-btn .lang-text {
+                display: none;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .logo-text {
+                display: none;
             }
         }
     </style>
@@ -137,28 +204,54 @@
                 <div class="logo-icon">EEA</div>
                 <div class="logo-text">Enterprise <span>Ethereum</span> Alliance</div>
             </a>
-            <nav class="tab-nav">
-                <button class="tab-btn active" data-page="ethereum-global-computer.html">
-                    🌐 Global Computer
-                </button>
-                <button class="tab-btn" data-page="ethereum-architecture.html">
-                    🏗️ Architecture
-                </button>
-                <button class="tab-btn" data-page="ethereum-architecture-why.html">
-                    🤔 Why It Works
-                </button>
-                <button class="tab-btn" data-page="finance-infrastructure.html">
-                    💰 Finance Map
-                </button>
-            </nav>
+            <div class="header-right">
+                <nav class="tab-nav">
+                    <button class="tab-btn active" data-page="ethereum-global-computer.html" data-i18n="common.tab_global_computer">
+                        🌐 Global Computer
+                    </button>
+                    <button class="tab-btn" data-page="ethereum-architecture.html" data-i18n="common.tab_architecture">
+                        🏗️ Architecture
+                    </button>
+                    <button class="tab-btn" data-page="ethereum-architecture-why.html" data-i18n="common.tab_why_works">
+                        🤔 Why It Works
+                    </button>
+                    <button class="tab-btn" data-page="finance-infrastructure.html" data-i18n="common.tab_finance_map">
+                        💰 Finance Map
+                    </button>
+                </nav>
+                <div class="lang-switcher">
+                    <button class="lang-btn" data-lang="en" title="English">
+                        <span class="flag">🇬🇧</span><span class="lang-text">EN</span>
+                    </button>
+                    <button class="lang-btn" data-lang="fr" title="Français">
+                        <span class="flag">🇫🇷</span><span class="lang-text">FR</span>
+                    </button>
+                    <button class="lang-btn" data-lang="es" title="Español">
+                        <span class="flag">🇪🇸</span><span class="lang-text">ES</span>
+                    </button>
+                </div>
+            </div>
         </div>
     </header>
 
     <iframe id="content-frame" class="content-frame" src="ethereum-global-computer.html"></iframe>
 
+    <script src="i18n.js"></script>
     <script>
         const tabs = document.querySelectorAll('.tab-btn');
         const frame = document.getElementById('content-frame');
+
+        // Get current language from URL or localStorage
+        function getCurrentLang() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('lang') || localStorage.getItem('eea-lang') || 'en';
+        }
+
+        // Load page with language parameter
+        function loadPageWithLang(page) {
+            const lang = getCurrentLang();
+            frame.src = `${page}?lang=${lang}`;
+        }
 
         tabs.forEach(tab => {
             tab.addEventListener('click', () => {
@@ -166,8 +259,8 @@
                 tabs.forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
                 
-                // Load page
-                frame.src = tab.dataset.page;
+                // Load page with current language
+                loadPageWithLang(tab.dataset.page);
             });
         });
 
@@ -178,7 +271,23 @@
             if (targetTab) {
                 targetTab.click();
             }
+        } else {
+            // Load default page with language
+            loadPageWithLang('ethereum-global-computer.html');
         }
+
+        // Listen for language changes and update iframe
+        window.addEventListener('languageChanged', (e) => {
+            const lang = e.detail.lang;
+            // Update iframe src with new language
+            const currentPage = frame.src.split('?')[0].split('/').pop();
+            frame.src = `${currentPage}?lang=${lang}`;
+            
+            // Also post message to iframe
+            if (frame.contentWindow) {
+                frame.contentWindow.postMessage({ type: 'langChange', lang }, '*');
+            }
+        });
     </script>
 </body>
 </html>

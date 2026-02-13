@@ -326,12 +326,12 @@
 </head>
 <body>
     <div class="container">
-        <h1>🤔 Why Ethereum Works This Way</h1>
-        <p class="subtitle">Understanding the architecture through the problems it solves</p>
+        <h1 data-i18n="why_works.title">🤔 Why Ethereum Works This Way</h1>
+        <p class="subtitle" data-i18n="why_works.subtitle">Understanding the architecture through the problems it solves</p>
         
         <div class="analogy-banner">
-            <h2>⚖️ The Justice System Analogy</h2>
-            <p>
+            <h2 data-i18n="why_works.analogy_banner_title">⚖️ The Justice System Analogy</h2>
+            <p data-i18n="why_works.analogy_banner_text">
                 Think of Ethereum like a global justice system. Every transaction is a "case" that needs to be fairly processed, 
                 recorded, and made final. The architecture exists because <strong>you can't trust any single party</strong> to be the judge, 
                 jury, and record-keeper. Every component exists to solve a specific trust problem.
@@ -342,29 +342,29 @@
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🏛️</span>
-                <span class="section-title">The Foundation: Why Have Two Clients?</span>
+                <span class="section-title" data-i18n="why_works.section_foundation">The Foundation: Why Have Two Clients?</span>
             </div>
             
             <div class="why-grid">
                 <div class="why-card">
                     <div class="card-header consensus">
-                        <div class="component-name">Consensus Client</div>
-                        <div class="tech-name">Prysm, Lighthouse, Teku, Nimbus</div>
+                        <div class="component-name" data-i18n="why_works.consensus_title">Consensus Client</div>
+                        <div class="tech-name" data-i18n="why_works.consensus_tech">Prysm, Lighthouse, Teku, Nimbus</div>
                     </div>
                     <div class="card-body">
                         <div class="the-problem">
-                            <h4>❓ The Problem</h4>
-                            <p>How do 500,000+ validators around the world agree on who gets to add the next block, without anyone cheating or being able to predict who's next?</p>
+                            <h4 data-i18n="why_works.consensus_problem_title">❓ The Problem</h4>
+                            <p data-i18n="why_works.consensus_problem">How do 500,000+ validators around the world agree on who gets to add the next block, without anyone cheating or being able to predict who's next?</p>
                         </div>
                         <div class="analogy-box">
-                            <h4>⚖️ Court Analogy</h4>
-                            <p>Like a judicial assignment committee that randomly selects which judge handles each case. No one can bribe their way to a specific case because the selection is unpredictable.</p>
+                            <h4 data-i18n="why_works.consensus_analogy_title">⚖️ Court Analogy</h4>
+                            <p data-i18n="why_works.consensus_analogy">Like a judicial assignment committee that randomly selects which judge handles each case. No one can bribe their way to a specific case because the selection is unpredictable.</p>
                         </div>
                         <div class="the-solution">
-                            <h4>✅ Why It Exists</h4>
-                            <p>The consensus client coordinates the random selection process and ensures everyone agrees on who was chosen. It's the "agreement layer" — not about processing transactions, but about who gets to process them.</p>
+                            <h4 data-i18n="why_works.consensus_solution_title">✅ Why It Exists</h4>
+                            <p data-i18n="why_works.consensus_solution">The consensus client coordinates the random selection process and ensures everyone agrees on who was chosen. It's the "agreement layer" — not about processing transactions, but about who gets to process them.</p>
                         </div>
-                        <div class="key-insight">
+                        <div class="key-insight" data-i18n="why_works.consensus_insight">
                             💡 Separation of powers: The consensus client decides WHO, but not WHAT goes in the block.
                         </div>
                     </div>
@@ -372,23 +372,23 @@
                 
                 <div class="why-card">
                     <div class="card-header execution">
-                        <div class="component-name">Execution Client</div>
-                        <div class="tech-name">Geth, Besu, Nethermind, Erigon</div>
+                        <div class="component-name" data-i18n="why_works.execution_title">Execution Client</div>
+                        <div class="tech-name" data-i18n="why_works.execution_tech">Geth, Besu, Nethermind, Erigon</div>
                     </div>
                     <div class="card-body">
                         <div class="the-problem">
-                            <h4>❓ The Problem</h4>
-                            <p>Someone needs to actually run the code, update account balances, and make sure the math is right. How do we ensure every node gets the exact same result?</p>
+                            <h4 data-i18n="why_works.execution_problem_title">❓ The Problem</h4>
+                            <p data-i18n="why_works.execution_problem">Someone needs to actually run the code, update account balances, and make sure the math is right. How do we ensure every node gets the exact same result?</p>
                         </div>
                         <div class="analogy-box">
-                            <h4>⚖️ Court Analogy</h4>
-                            <p>Like the actual courtroom where cases are tried. The judge (consensus) said "hear this case," but the courtroom (execution) actually processes it according to the law (smart contracts).</p>
+                            <h4 data-i18n="why_works.execution_analogy_title">⚖️ Court Analogy</h4>
+                            <p data-i18n="why_works.execution_analogy">Like the actual courtroom where cases are tried. The judge (consensus) said "hear this case," but the courtroom (execution) actually processes it according to the law (smart contracts).</p>
                         </div>
                         <div class="the-solution">
-                            <h4>✅ Why It Exists</h4>
-                            <p>The execution client is the "doing layer." It runs the EVM, processes transactions, and updates the global state. Separate from consensus so you can upgrade one without breaking the other.</p>
+                            <h4 data-i18n="why_works.execution_solution_title">✅ Why It Exists</h4>
+                            <p data-i18n="why_works.execution_solution">The execution client is the "doing layer." It runs the EVM, processes transactions, and updates the global state. Separate from consensus so you can upgrade one without breaking the other.</p>
                         </div>
-                        <div class="key-insight">
+                        <div class="key-insight" data-i18n="why_works.execution_insight">
                             💡 Modularity: If we find a better way to execute, we can swap execution clients without touching consensus.
                         </div>
                     </div>
@@ -400,34 +400,34 @@
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">💰</span>
-                <span class="section-title">The Ordering Problem: Why MEV Infrastructure?</span>
+                <span class="section-title" data-i18n="why_works.section_mev">The Ordering Problem: Why MEV Infrastructure?</span>
             </div>
             
             <div class="flow-section">
-                <div class="flow-title">The Transaction Journey: Why Each Step Exists</div>
+                <div class="flow-title" data-i18n="why_works.flow_title">The Transaction Journey: Why Each Step Exists</div>
                 <div class="flow-diagram">
                     <div class="flow-step">
                         <div class="flow-step-icon">👥</div>
-                        <div class="flow-step-title">You (User)</div>
-                        <div class="flow-step-why">You want to swap tokens</div>
+                        <div class="flow-step-title" data-i18n="why_works.flow_you">You (User)</div>
+                        <div class="flow-step-why" data-i18n="why_works.flow_you_why">You want to swap tokens</div>
                     </div>
                     <span class="flow-arrow">→</span>
                     <div class="flow-step">
                         <div class="flow-step-icon">🏗️</div>
-                        <div class="flow-step-title">Block Builder</div>
-                        <div class="flow-step-why">Organizes transactions efficiently</div>
+                        <div class="flow-step-title" data-i18n="why_works.flow_builder">Block Builder</div>
+                        <div class="flow-step-why" data-i18n="why_works.flow_builder_why">Organizes transactions efficiently</div>
                     </div>
                     <span class="flow-arrow">→</span>
                     <div class="flow-step">
                         <div class="flow-step-icon">🔄</div>
-                        <div class="flow-step-title">Relay</div>
-                        <div class="flow-step-why">Ensures fair auction</div>
+                        <div class="flow-step-title" data-i18n="why_works.flow_relay">Relay</div>
+                        <div class="flow-step-why" data-i18n="why_works.flow_relay_why">Ensures fair auction</div>
                     </div>
                     <span class="flow-arrow">→</span>
                     <div class="flow-step">
                         <div class="flow-step-icon">👑</div>
-                        <div class="flow-step-title">Proposer</div>
-                        <div class="flow-step-why">Chosen validator finalizes</div>
+                        <div class="flow-step-title" data-i18n="why_works.flow_proposer">Proposer</div>
+                        <div class="flow-step-why" data-i18n="why_works.flow_proposer_why">Chosen validator finalizes</div>
                     </div>
                 </div>
             </div>
@@ -435,63 +435,63 @@
             <div class="why-grid">
                 <div class="why-card">
                     <div class="card-header builder">
-                        <div class="component-name">Block Builders</div>
-                        <div class="tech-name">Flashbots, bloXroute, Titan</div>
+                        <div class="component-name" data-i18n="why_works.builder_title">Block Builders</div>
+                        <div class="tech-name" data-i18n="why_works.builder_tech">Flashbots, bloXroute, Titan</div>
                     </div>
                     <div class="card-body">
                         <div class="the-problem">
-                            <h4>❓ The Problem</h4>
-                            <p>Transaction order matters! If you're buying a token, someone could see your transaction, buy first, and sell to you at a higher price. This is "front-running."</p>
+                            <h4 data-i18n="why_works.builder_problem_title">❓ The Problem</h4>
+                            <p data-i18n="why_works.builder_problem">Transaction order matters! If you're buying a token, someone could see your transaction, buy first, and sell to you at a higher price. This is "front-running."</p>
                         </div>
                         <div class="analogy-box">
-                            <h4>⚖️ Court Analogy</h4>
-                            <p>Like a court scheduler who groups related cases together efficiently. If Case A affects Case B, they need to be heard in the right order — otherwise injustice happens.</p>
+                            <h4 data-i18n="why_works.builder_analogy_title">⚖️ Court Analogy</h4>
+                            <p data-i18n="why_works.builder_analogy">Like a court scheduler who groups related cases together efficiently. If Case A affects Case B, they need to be heard in the right order — otherwise injustice happens.</p>
                         </div>
                         <div class="the-solution">
-                            <h4>✅ Why It Exists</h4>
-                            <p>Builders specialize in optimizing transaction order. By separating "who builds" from "who proposes," we create competition that actually benefits users through better MEV redistribution.</p>
+                            <h4 data-i18n="why_works.builder_solution_title">✅ Why It Exists</h4>
+                            <p data-i18n="why_works.builder_solution">Builders specialize in optimizing transaction order. By separating "who builds" from "who proposes," we create competition that actually benefits users through better MEV redistribution.</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="why-card">
                     <div class="card-header relay">
-                        <div class="component-name">Relays</div>
-                        <div class="tech-name">Flashbots, Ultrasound, bloXroute</div>
+                        <div class="component-name" data-i18n="why_works.relay_title">Relays</div>
+                        <div class="tech-name" data-i18n="why_works.relay_tech">Flashbots, Ultrasound, bloXroute</div>
                     </div>
                     <div class="card-body">
                         <div class="the-problem">
-                            <h4>❓ The Problem</h4>
-                            <p>Builders and proposers don't trust each other. Builders don't want to reveal their blocks (someone could steal the strategy). Proposers don't want to blindly accept a block that might be invalid.</p>
+                            <h4 data-i18n="why_works.relay_problem_title">❓ The Problem</h4>
+                            <p data-i18n="why_works.relay_problem">Builders and proposers don't trust each other. Builders don't want to reveal their blocks (someone could steal the strategy). Proposers don't want to blindly accept a block that might be invalid.</p>
                         </div>
                         <div class="analogy-box">
-                            <h4>⚖️ Court Analogy</h4>
-                            <p>Like an escrow service for sealed bids. The relay holds the builder's block without showing it, verifies it's valid, and only reveals it after the proposer commits. Trust without seeing.</p>
+                            <h4 data-i18n="why_works.relay_analogy_title">⚖️ Court Analogy</h4>
+                            <p data-i18n="why_works.relay_analogy">Like an escrow service for sealed bids. The relay holds the builder's block without showing it, verifies it's valid, and only reveals it after the proposer commits. Trust without seeing.</p>
                         </div>
                         <div class="the-solution">
-                            <h4>✅ Why It Exists</h4>
-                            <p>Relays are trusted intermediaries that enable sealed-bid auctions. They verify blocks are valid without revealing contents, enabling fair competition between builders.</p>
+                            <h4 data-i18n="why_works.relay_solution_title">✅ Why It Exists</h4>
+                            <p data-i18n="why_works.relay_solution">Relays are trusted intermediaries that enable sealed-bid auctions. They verify blocks are valid without revealing contents, enabling fair competition between builders.</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="why-card">
                     <div class="card-header mev">
-                        <div class="component-name">Proposer (Validator)</div>
-                        <div class="tech-name">1 of 500,000+ validators</div>
+                        <div class="component-name" data-i18n="why_works.proposer_title">Proposer (Validator)</div>
+                        <div class="tech-name" data-i18n="why_works.proposer_tech">1 of 500,000+ validators</div>
                     </div>
                     <div class="card-body">
                         <div class="the-problem">
-                            <h4>❓ The Problem</h4>
-                            <p>Who gets the final say? You need someone with skin in the game (staked ETH) who will be punished if they cheat, but they shouldn't have unlimited power.</p>
+                            <h4 data-i18n="why_works.proposer_problem_title">❓ The Problem</h4>
+                            <p data-i18n="why_works.proposer_problem">Who gets the final say? You need someone with skin in the game (staked ETH) who will be punished if they cheat, but they shouldn't have unlimited power.</p>
                         </div>
                         <div class="analogy-box">
-                            <h4>⚖️ Court Analogy</h4>
-                            <p>Like the presiding judge who signs off on the final verdict. They don't investigate the case themselves (that's the builder's job) — they just verify and finalize it with their authority.</p>
+                            <h4 data-i18n="why_works.proposer_analogy_title">⚖️ Court Analogy</h4>
+                            <p data-i18n="why_works.proposer_analogy">Like the presiding judge who signs off on the final verdict. They don't investigate the case themselves (that's the builder's job) — they just verify and finalize it with their authority.</p>
                         </div>
                         <div class="the-solution">
-                            <h4>✅ Why It Exists</h4>
-                            <p>The proposer provides the final cryptographic signature that makes the block official. They're randomly selected (can't be bribed in advance) and have 32 ETH at stake (can be punished for cheating).</p>
+                            <h4 data-i18n="why_works.proposer_solution_title">✅ Why It Exists</h4>
+                            <p data-i18n="why_works.proposer_solution">The proposer provides the final cryptographic signature that makes the block official. They're randomly selected (can't be bribed in advance) and have 32 ETH at stake (can be punished for cheating).</p>
                         </div>
                     </div>
                 </div>
@@ -502,29 +502,29 @@
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">📈</span>
-                <span class="section-title">The Scale Problem: Why Layer 2?</span>
+                <span class="section-title" data-i18n="why_works.section_scale">The Scale Problem: Why Layer 2?</span>
             </div>
             
             <div class="why-grid">
                 <div class="why-card">
                     <div class="card-header l2">
-                        <div class="component-name">Layer 2 Rollups</div>
-                        <div class="tech-name">Arbitrum, Optimism, Base, zkSync</div>
+                        <div class="component-name" data-i18n="why_works.l2_title">Layer 2 Rollups</div>
+                        <div class="tech-name" data-i18n="why_works.l2_tech">Arbitrum, Optimism, Base, zkSync</div>
                     </div>
                     <div class="card-body">
                         <div class="the-problem">
-                            <h4>❓ The Problem</h4>
-                            <p>Ethereum L1 processes ~15 transactions per second. That's 1.3 million per day. The world needs billions. We can't just make blocks bigger — every node needs to verify everything.</p>
+                            <h4 data-i18n="why_works.l2_problem_title">❓ The Problem</h4>
+                            <p data-i18n="why_works.l2_problem">Ethereum L1 processes ~15 transactions per second. That's 1.3 million per day. The world needs billions. We can't just make blocks bigger — every node needs to verify everything.</p>
                         </div>
                         <div class="analogy-box">
-                            <h4>⚖️ Court Analogy</h4>
-                            <p>The Supreme Court (L1) can't hear every case — it would collapse. So we have lower courts (L2s) that handle most cases, with the Supreme Court only reviewing summaries and handling appeals.</p>
+                            <h4 data-i18n="why_works.l2_analogy_title">⚖️ Court Analogy</h4>
+                            <p data-i18n="why_works.l2_analogy">The Supreme Court (L1) can't hear every case — it would collapse. So we have lower courts (L2s) that handle most cases, with the Supreme Court only reviewing summaries and handling appeals.</p>
                         </div>
                         <div class="the-solution">
-                            <h4>✅ Why It Exists</h4>
-                            <p>L2s do the heavy lifting (thousands of transactions) and only post compressed summaries to L1. L1 provides security guarantees; L2 provides speed and low cost.</p>
+                            <h4 data-i18n="why_works.l2_solution_title">✅ Why It Exists</h4>
+                            <p data-i18n="why_works.l2_solution">L2s do the heavy lifting (thousands of transactions) and only post compressed summaries to L1. L1 provides security guarantees; L2 provides speed and low cost.</p>
                         </div>
-                        <div class="key-insight">
+                        <div class="key-insight" data-i18n="why_works.l2_insight">
                             💡 L1 security, L2 scale: The math proof or fraud proof ensures L2 can't cheat, even though L1 doesn't see every transaction.
                         </div>
                     </div>
@@ -532,23 +532,23 @@
                 
                 <div class="why-card">
                     <div class="card-header sequencer">
-                        <div class="component-name">Sequencer</div>
-                        <div class="tech-name">Currently centralized operators</div>
+                        <div class="component-name" data-i18n="why_works.sequencer_title">Sequencer</div>
+                        <div class="tech-name" data-i18n="why_works.sequencer_tech">Currently centralized operators</div>
                     </div>
                     <div class="card-body">
                         <div class="the-problem">
-                            <h4>❓ The Problem</h4>
-                            <p>On L2, someone needs to order transactions quickly (sub-second) before they're batched to L1. Waiting for L1's 12-second slots would kill the user experience.</p>
+                            <h4 data-i18n="why_works.sequencer_problem_title">❓ The Problem</h4>
+                            <p data-i18n="why_works.sequencer_problem">On L2, someone needs to order transactions quickly (sub-second) before they're batched to L1. Waiting for L1's 12-second slots would kill the user experience.</p>
                         </div>
                         <div class="analogy-box">
-                            <h4>⚖️ Court Analogy</h4>
-                            <p>Like a court clerk who immediately logs your case filing and gives you a receipt. The official hearing (L1 finality) comes later, but you have instant confirmation your case was received.</p>
+                            <h4 data-i18n="why_works.sequencer_analogy_title">⚖️ Court Analogy</h4>
+                            <p data-i18n="why_works.sequencer_analogy">Like a court clerk who immediately logs your case filing and gives you a receipt. The official hearing (L1 finality) comes later, but you have instant confirmation your case was received.</p>
                         </div>
                         <div class="the-solution">
-                            <h4>✅ Why It Exists</h4>
-                            <p>The sequencer provides instant "soft confirmations" (your transaction is ordered) while batching happens in the background. Trade-off: current sequencers are centralized (known operators like Coinbase).</p>
+                            <h4 data-i18n="why_works.sequencer_solution_title">✅ Why It Exists</h4>
+                            <p data-i18n="why_works.sequencer_solution">The sequencer provides instant "soft confirmations" (your transaction is ordered) while batching happens in the background. Trade-off: current sequencers are centralized (known operators like Coinbase).</p>
                         </div>
-                        <div class="key-insight">
+                        <div class="key-insight" data-i18n="why_works.sequencer_insight">
                             💡 Coming soon: "Based rollups" will use L1 validators as sequencers, removing the centralization trade-off.
                         </div>
                     </div>
@@ -556,23 +556,23 @@
                 
                 <div class="why-card">
                     <div class="card-header data">
-                        <div class="component-name">Data Availability (Blobs)</div>
-                        <div class="tech-name">EIP-4844 / Proto-Danksharding</div>
+                        <div class="component-name" data-i18n="why_works.data_title">Data Availability (Blobs)</div>
+                        <div class="tech-name" data-i18n="why_works.data_tech">EIP-4844 / Proto-Danksharding</div>
                     </div>
                     <div class="card-body">
                         <div class="the-problem">
-                            <h4>❓ The Problem</h4>
-                            <p>L2s post transaction data to L1. But storing data on L1 forever is expensive. We need the data available long enough to detect fraud, but not forever.</p>
+                            <h4 data-i18n="why_works.data_problem_title">❓ The Problem</h4>
+                            <p data-i18n="why_works.data_problem">L2s post transaction data to L1. But storing data on L1 forever is expensive. We need the data available long enough to detect fraud, but not forever.</p>
                         </div>
                         <div class="analogy-box">
-                            <h4>⚖️ Court Analogy</h4>
-                            <p>Like court records that must be kept for 18 days (the appeal period). After that, the verdict is final and you only need to keep the summary. Full transcripts can be archived elsewhere.</p>
+                            <h4 data-i18n="why_works.data_analogy_title">⚖️ Court Analogy</h4>
+                            <p data-i18n="why_works.data_analogy">Like court records that must be kept for 18 days (the appeal period). After that, the verdict is final and you only need to keep the summary. Full transcripts can be archived elsewhere.</p>
                         </div>
                         <div class="the-solution">
-                            <h4>✅ Why It Exists</h4>
-                            <p>Blobs are temporary data storage (~18 days) that's much cheaper than permanent storage. L2s post their data there, anyone can verify fraud during the window, then it's pruned.</p>
+                            <h4 data-i18n="why_works.data_solution_title">✅ Why It Exists</h4>
+                            <p data-i18n="why_works.data_solution">Blobs are temporary data storage (~18 days) that's much cheaper than permanent storage. L2s post their data there, anyone can verify fraud during the window, then it's pruned.</p>
                         </div>
-                        <div class="key-insight">
+                        <div class="key-insight" data-i18n="why_works.data_insight">
                             💡 Temporary availability is enough: If no one proves fraud in 18 days, we assume it's valid. This makes L2 transactions 10-100x cheaper.
                         </div>
                     </div>
@@ -580,21 +580,21 @@
                 
                 <div class="why-card">
                     <div class="card-header prover">
-                        <div class="component-name">Provers / Fraud Proofs</div>
-                        <div class="tech-name">Optimistic vs ZK approaches</div>
+                        <div class="component-name" data-i18n="why_works.prover_title">Provers / Fraud Proofs</div>
+                        <div class="tech-name" data-i18n="why_works.prover_tech">Optimistic vs ZK approaches</div>
                     </div>
                     <div class="card-body">
                         <div class="the-problem">
-                            <h4>❓ The Problem</h4>
-                            <p>L1 can't re-execute all L2 transactions (that defeats the purpose). But how do we know the L2 didn't lie about what happened?</p>
+                            <h4 data-i18n="why_works.prover_problem_title">❓ The Problem</h4>
+                            <p data-i18n="why_works.prover_problem">L1 can't re-execute all L2 transactions (that defeats the purpose). But how do we know the L2 didn't lie about what happened?</p>
                         </div>
                         <div class="analogy-box">
-                            <h4>⚖️ Court Analogy</h4>
-                            <p><strong>Optimistic:</strong> Lower court verdicts are assumed valid unless someone appeals within 7 days.<br><br><strong>ZK:</strong> Every verdict comes with a mathematical proof that the judge followed the law correctly. No appeals needed.</p>
+                            <h4 data-i18n="why_works.prover_analogy_title">⚖️ Court Analogy</h4>
+                            <p><strong data-i18n="why_works.prover_analogy_optimistic">Optimistic:</strong> <span data-i18n="why_works.prover_analogy_optimistic_text">Lower court verdicts are assumed valid unless someone appeals within 7 days.</span><br><br><strong data-i18n="why_works.prover_analogy_zk">ZK:</strong> <span data-i18n="why_works.prover_analogy_zk_text">Every verdict comes with a mathematical proof that the judge followed the law correctly. No appeals needed.</span></p>
                         </div>
                         <div class="the-solution">
-                            <h4>✅ Why It Exists</h4>
-                            <p>Provers create cryptographic evidence that L2 state transitions are valid. Optimistic = cheaper but slower withdrawals. ZK = more expensive but instant finality.</p>
+                            <h4 data-i18n="why_works.prover_solution_title">✅ Why It Exists</h4>
+                            <p data-i18n="why_works.prover_solution">Provers create cryptographic evidence that L2 state transitions are valid. Optimistic = cheaper but slower withdrawals. ZK = more expensive but instant finality.</p>
                         </div>
                     </div>
                 </div>
@@ -603,26 +603,27 @@
         
         <!-- Summary -->
         <div class="summary-box">
-            <h2>🎯 The Core Design Principles</h2>
+            <h2 data-i18n="why_works.summary_title">🎯 The Core Design Principles</h2>
             <div class="summary-grid">
                 <div class="summary-item">
-                    <h4>🔀 Separation of Concerns</h4>
-                    <p>Every component does one thing well. Consensus picks WHO. Execution does WHAT. Builders optimize ORDER. This modularity enables upgrades without breaking everything.</p>
+                    <h4 data-i18n="why_works.principle_separation">🔀 Separation of Concerns</h4>
+                    <p data-i18n="why_works.principle_separation_text">Every component does one thing well. Consensus picks WHO. Execution does WHAT. Builders optimize ORDER. This modularity enables upgrades without breaking everything.</p>
                 </div>
                 <div class="summary-item">
-                    <h4>🎲 Unpredictability</h4>
-                    <p>Random proposer selection prevents corruption. You can't bribe the next block producer because no one knows who it will be until the last moment.</p>
+                    <h4 data-i18n="why_works.principle_unpredictability">🎲 Unpredictability</h4>
+                    <p data-i18n="why_works.principle_unpredictability_text">Random proposer selection prevents corruption. You can't bribe the next block producer because no one knows who it will be until the last moment.</p>
                 </div>
                 <div class="summary-item">
-                    <h4>💰 Economic Incentives</h4>
-                    <p>Validators stake 32 ETH — skin in the game. Cheating means losing your stake. Honest behavior is more profitable than attacking.</p>
+                    <h4 data-i18n="why_works.principle_incentives">💰 Economic Incentives</h4>
+                    <p data-i18n="why_works.principle_incentives_text">Validators stake 32 ETH — skin in the game. Cheating means losing your stake. Honest behavior is more profitable than attacking.</p>
                 </div>
                 <div class="summary-item">
-                    <h4>📊 Verify, Don't Trust</h4>
-                    <p>Every claim can be verified independently. Fraud proofs, validity proofs, attestations — the system assumes everyone might lie and builds verification into every step.</p>
+                    <h4 data-i18n="why_works.principle_verify">📊 Verify, Don't Trust</h4>
+                    <p data-i18n="why_works.principle_verify_text">Every claim can be verified independently. Fraud proofs, validity proofs, attestations — the system assumes everyone might lie and builds verification into every step.</p>
                 </div>
             </div>
         </div>
     </div>
+    <script src="i18n.js"></script>
 </body>
 </html>
