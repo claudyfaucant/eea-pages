@@ -7,19 +7,20 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #12121a;
-            --bg-card: #1a1a24;
-            --accent-buy: #00d4aa;
-            --accent-sell: #ff6b6b;
-            --accent-infra: #7c8aff;
-            --accent-flow: #ffd93d;
-            --accent-metric: #00b4d8;
-            --accent-warning: #ff9f43;
-            --text-primary: #ffffff;
-            --text-secondary: #8a8a9a;
-            --text-muted: #5a5a6a;
-            --border: rgba(255,255,255,0.08);
+            /* Light theme colors matching other pages */
+            --bg-primary: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            --bg-secondary: rgba(255, 255, 255, 0.98);
+            --bg-card: rgba(255, 255, 255, 0.95);
+            --accent-buy: #00a884;
+            --accent-sell: #e74c3c;
+            --accent-infra: #667eea;
+            --accent-flow: #f39c12;
+            --accent-metric: #3498db;
+            --accent-warning: #e67e22;
+            --text-primary: #2c3e50;
+            --text-secondary: #5a6c7d;
+            --text-muted: #8492a6;
+            --border: rgba(0,0,0,0.1);
         }
 
         * {
@@ -29,45 +30,55 @@
         }
 
         body {
-            font-family: 'IBM Plex Sans', sans-serif;
+            font-family: 'IBM Plex Sans', 'Segoe UI', sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
             min-height: 100vh;
+            padding: 20px;
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 40px;
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
         }
 
         /* Header */
         header {
-            margin-bottom: 3rem;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 1.5rem;
         }
 
         h1 {
             font-size: 2.5rem;
-            font-weight: 300;
+            font-weight: 600;
             letter-spacing: -0.02em;
             margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .subtitle {
             color: var(--text-secondary);
             font-size: 1.1rem;
-            font-weight: 300;
+            font-weight: 400;
         }
 
         /* Legend */
         .legend {
             display: flex;
             gap: 2rem;
-            margin: 2rem 0;
+            margin: 1.5rem 0;
             flex-wrap: wrap;
+            padding: 1rem;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 10px;
         }
 
         .legend-item {
@@ -76,12 +87,14 @@
             gap: 0.5rem;
             font-size: 0.85rem;
             color: var(--text-secondary);
+            font-weight: 500;
         }
 
         .legend-dot {
-            width: 10px;
-            height: 10px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .legend-dot.buy { background: var(--accent-buy); }
@@ -91,9 +104,9 @@
 
         /* Context Banner */
         .context-banner {
-            background: linear-gradient(135deg, rgba(124,138,255,0.08) 0%, rgba(0,212,170,0.04) 100%);
-            border: 1px solid rgba(124,138,255,0.2);
-            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.15) 0%, rgba(118,75,162,0.1) 100%);
+            border: 2px solid rgba(102,126,234,0.3);
+            border-radius: 16px;
             padding: 2rem;
             margin-bottom: 2rem;
         }
@@ -106,18 +119,18 @@
         }
 
         .eea-badge {
-            background: var(--accent-infra);
-            color: var(--bg-primary);
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
             font-size: 0.75rem;
             font-weight: 600;
-            padding: 0.35rem 0.6rem;
-            border-radius: 4px;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
             letter-spacing: 0.05em;
         }
 
         .context-header h2 {
             font-size: 1.25rem;
-            font-weight: 500;
+            font-weight: 600;
             color: var(--text-primary);
         }
 
@@ -128,16 +141,12 @@
             line-height: 1.7;
         }
 
-        .context-banner p:last-of-type {
-            margin-bottom: 1.25rem;
-        }
-
         .context-footer {
             font-size: 1rem;
-            font-weight: 500;
+            font-weight: 600;
             color: var(--text-primary);
             padding-top: 1rem;
-            border-top: 1px solid var(--border);
+            border-top: 2px solid var(--border);
         }
 
         /* Scale Banner */
@@ -145,25 +154,22 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1rem;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             padding: 1.5rem;
-            background: linear-gradient(135deg, rgba(0,180,216,0.1) 0%, rgba(124,138,255,0.05) 100%);
-            border: 1px solid rgba(0,180,216,0.2);
-            border-radius: 12px;
-        }
-
-        @media (max-width: 800px) {
-            .scale-banner { grid-template-columns: repeat(2, 1fr); }
+            background: linear-gradient(135deg, rgba(52,152,219,0.15) 0%, rgba(102,126,234,0.1) 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(102,126,234,0.2);
         }
 
         .scale-item {
             text-align: center;
+            padding: 1rem;
         }
 
         .scale-value {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 600;
-            color: var(--accent-metric);
+            color: var(--accent-infra);
             font-family: 'IBM Plex Mono', monospace;
         }
 
@@ -171,509 +177,249 @@
             font-size: 0.8rem;
             color: var(--text-secondary);
             margin-top: 0.25rem;
+            font-weight: 500;
         }
 
-        /* Main Grid */
-        .ecosystem-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 3rem;
+        /* Section */
+        .section {
+            margin-bottom: 2.5rem;
         }
-
-        @media (max-width: 900px) {
-            .ecosystem-grid { grid-template-columns: 1fr; }
-        }
-
-        /* Actor Cards */
-        .actor-section {
-            background: var(--bg-card);
-            border-radius: 12px;
-            padding: 1.5rem;
-            border: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .actor-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-        }
-
-        .actor-section.buy-side::before { background: var(--accent-buy); }
-        .actor-section.sell-side::before { background: var(--accent-sell); }
 
         .section-header {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--border);
         }
 
         .section-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
+            font-size: 1.5rem;
         }
-
-        .buy-side .section-icon { background: rgba(0,212,170,0.15); color: var(--accent-buy); }
-        .sell-side .section-icon { background: rgba(255,107,107,0.15); color: var(--accent-sell); }
 
         .section-title {
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-
-        .section-subtitle {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            font-family: 'IBM Plex Mono', monospace;
-            margin-top: 2px;
-        }
-
-        .section-why {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            padding-left: 0.75rem;
-            border-left: 2px solid var(--border);
-        }
-
-        .actor-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .actor-tag {
-            background: var(--bg-secondary);
-            padding: 0.4rem 0.75rem;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            border: 1px solid var(--border);
-            transition: all 0.2s ease;
-        }
-
-        .actor-tag:hover {
-            border-color: var(--text-muted);
+            font-size: 1.4rem;
+            font-weight: 600;
             color: var(--text-primary);
         }
 
-        /* Infrastructure Section */
-        .infrastructure {
-            margin-top: 3rem;
-        }
-
-        .infra-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .infra-header h2 {
-            font-size: 1.5rem;
-            font-weight: 400;
-        }
-
-        .infra-grid {
+        /* Cards Grid */
+        .cards-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.25rem;
         }
 
-        .infra-card {
-            background: var(--bg-card);
+        .card {
+            background: white;
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 1.5rem;
-            position: relative;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
-        @media (max-width: 900px) {
-            .infra-card { grid-template-columns: 1fr; }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(102,126,234,0.15);
+            border-color: var(--accent-infra);
         }
 
-        .infra-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--accent-infra);
-            border-radius: 12px 12px 0 0;
-        }
-
-        .infra-left {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .infra-card-header {
+        .card-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 0.25rem;
-        }
-
-        .infra-card h3 {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--accent-infra);
-        }
-
-        .infra-abbrev {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            background: var(--bg-secondary);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-family: 'IBM Plex Mono', monospace;
-        }
-
-        .infra-card .full-name {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-
-        .problem-box {
-            background: rgba(255,159,67,0.08);
-            border: 1px solid rgba(255,159,67,0.2);
-            border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .problem-label {
-            font-size: 0.7rem;
-            color: var(--accent-warning);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .problem-text {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
             margin-bottom: 0.75rem;
         }
 
-        .example-box {
-            background: var(--bg-secondary);
-            border-radius: 6px;
-            padding: 0.75rem;
-            margin-top: 0.5rem;
-        }
-
-        .example-label {
-            font-size: 0.65rem;
-            color: var(--accent-sell);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.35rem;
+        .card-title {
+            font-size: 1rem;
             font-weight: 600;
-        }
-
-        .example-text {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
-
-        .example-text strong {
             color: var(--text-primary);
         }
 
-        .solution-box {
-            background: rgba(0,212,170,0.08);
-            border: 1px solid rgba(0,212,170,0.2);
-            border-radius: 8px;
-            padding: 1rem;
-        }
-
-        .solution-label {
+        .card-tag {
             font-size: 0.7rem;
-            color: var(--accent-buy);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
             font-weight: 600;
         }
 
-        .solution-text {
-            font-size: 0.85rem;
+        .card-tag.infra { background: rgba(102,126,234,0.15); color: var(--accent-infra); }
+        .card-tag.buy { background: rgba(0,168,132,0.15); color: var(--accent-buy); }
+        .card-tag.sell { background: rgba(231,76,60,0.15); color: var(--accent-sell); }
+        .card-tag.flow { background: rgba(243,156,18,0.15); color: var(--accent-flow); }
+
+        .card-subtitle {
+            font-size: 0.8rem;
             color: var(--text-secondary);
+            margin-bottom: 1rem;
         }
 
-        .infra-right {
+        .card-metrics {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
         }
 
-        .operators-label {
+        .metric {
+            flex: 1;
+            min-width: 80px;
+        }
+
+        .metric-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent-infra);
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .metric-label {
             font-size: 0.7rem;
             color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.75rem;
             font-weight: 500;
         }
 
-        .infra-examples {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            flex: 1;
-        }
-
-        .example-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.85rem;
-            padding: 0.5rem 0.75rem;
-            background: var(--bg-secondary);
-            border-radius: 6px;
-        }
-
-        .example-name {
+        .card-detail {
+            font-size: 0.8rem;
             color: var(--text-secondary);
-        }
-
-        .example-stats {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-        }
-
-        .example-stat {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--accent-metric);
-            background: rgba(0,180,216,0.1);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-        }
-
-        .example-region {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.7rem;
-            color: var(--text-muted);
+            padding: 0.75rem;
+            background: rgba(102,126,234,0.05);
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-infra);
         }
 
         /* Flow Section */
-        .flows {
-            margin-top: 3rem;
-        }
-
-        .flow-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .flow-header h2 {
-            font-size: 1.5rem;
-            font-weight: 400;
-        }
-
-        .flow-cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        @media (max-width: 900px) {
-            .flow-cards { grid-template-columns: 1fr; }
-        }
-
-        .flow-card {
-            background: var(--bg-card);
+        .flow-container {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.25rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
-        .flow-card h3 {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--accent-flow);
-            margin-bottom: 0.5rem;
+        .flow-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
             display: flex;
             align-items: center;
             gap: 0.5rem;
-        }
-
-        .flow-card .flow-scale {
-            font-size: 0.8rem;
-            color: var(--accent-metric);
-            margin-bottom: 1rem;
-            font-family: 'IBM Plex Mono', monospace;
         }
 
         .flow-steps {
             display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
 
         .flow-step {
             display: flex;
-            gap: 0.75rem;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .step-num {
-            width: 20px;
-            height: 20px;
-            background: var(--bg-secondary);
-            border-radius: 50%;
-            display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-            font-family: 'IBM Plex Mono', monospace;
-            color: var(--text-muted);
-            flex-shrink: 0;
-        }
-
-        .step-text {
-            flex: 1;
-        }
-
-        .step-actor {
-            color: var(--accent-infra);
-            font-weight: 500;
-        }
-
-        /* Glossary */
-        .glossary {
-            margin-top: 3rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
+            text-align: center;
+            padding: 1rem;
+            background: rgba(102,126,234,0.08);
             border-radius: 12px;
-            padding: 1.5rem;
+            min-width: 100px;
+            border: 1px solid rgba(102,126,234,0.2);
         }
 
-        .glossary h3 {
-            font-size: 1rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .glossary-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 0.75rem;
-        }
-
-        .glossary-item {
-            display: flex;
-            gap: 0.75rem;
-            font-size: 0.85rem;
-        }
-
-        .glossary-term {
-            font-family: 'IBM Plex Mono', monospace;
-            color: var(--accent-infra);
-            font-weight: 500;
-            min-width: 70px;
-        }
-
-        .glossary-def {
-            color: var(--text-secondary);
-        }
-
-        /* Key Insight */
-        .insight {
-            margin-top: 3rem;
-            background: linear-gradient(135deg, rgba(124,138,255,0.1) 0%, rgba(0,212,170,0.05) 100%);
-            border: 1px solid rgba(124,138,255,0.2);
-            border-radius: 12px;
-            padding: 1.5rem;
-        }
-
-        .insight h3 {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--accent-infra);
-            margin-bottom: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .insight-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        @media (max-width: 700px) {
-            .insight-grid { grid-template-columns: 1fr; }
-        }
-
-        .insight-col h4 {
-            font-size: 0.85rem;
-            color: var(--accent-buy);
+        .flow-step-icon {
+            font-size: 1.5rem;
             margin-bottom: 0.5rem;
         }
 
-        .insight-col.hard h4 {
-            color: var(--accent-sell);
+        .flow-step-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-weight: 500;
         }
 
-        .insight-col ul {
-            list-style: none;
+        .flow-arrow {
+            color: var(--accent-infra);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Technical Callout */
+        .technical-callout {
+            background: linear-gradient(135deg, rgba(102,126,234,0.1) 0%, rgba(118,75,162,0.08) 100%);
+            border: 2px solid rgba(102,126,234,0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .technical-callout h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .technical-callout p {
             font-size: 0.85rem;
             color: var(--text-secondary);
-        }
-
-        .insight-col li {
-            padding: 0.25rem 0;
-            padding-left: 1rem;
-            position: relative;
-        }
-
-        .insight-col li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--text-muted);
+            line-height: 1.6;
         }
 
         /* Footer */
         footer {
-            margin-top: 4rem;
+            margin-top: 3rem;
             padding-top: 2rem;
-            border-top: 1px solid var(--border);
+            border-top: 2px solid var(--border);
             text-align: center;
-            color: var(--text-muted);
-            font-size: 0.8rem;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        footer a {
+            color: var(--accent-infra);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .scale-banner {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-steps {
+                flex-direction: column;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
         }
     </style>
 </head>
